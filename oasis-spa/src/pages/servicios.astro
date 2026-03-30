@@ -222,6 +222,40 @@
 				margin: 0 auto;
 			}
 
+			/* Pestañas de Servicios */
+			.services-tabs {
+				display: flex;
+				justify-content: center;
+				gap: 1rem;
+				margin: 2rem auto;
+				flex-wrap: wrap;
+				padding: 0 1rem;
+			}
+			.tab-btn {
+				background: transparent;
+				border: 2px solid var(--color-primary);
+				color: var(--color-text);
+				padding: 0.8rem 2rem;
+				border-radius: 50px;
+				font-size: 1.1rem;
+				font-weight: 500;
+				cursor: pointer;
+				transition: all 0.3s ease;
+				font-family: inherit;
+			}
+			.tab-btn:hover, .tab-btn.active {
+				background: var(--color-primary);
+				color: var(--color-white);
+				box-shadow: 0 5px 15px rgba(197, 163, 86, 0.3);
+			}
+			.tab-content {
+				display: none;
+				animation: slideIn 0.5s ease;
+			}
+			.tab-content.active {
+				display: block;
+			}
+
 			/* Grid de Servicios */
 			.services-grid {
 				display: grid;
@@ -624,7 +658,7 @@
 					</svg>
 				</a>
 				<div class="logo">
-					<a href="/"><img src="/logo-oasis.png" alt="Oasis Massage & Spa" class="nav-logo-img" /></a>
+					<a href="/"><img src="/images/oasis-logo.png" alt="Oasis Massage & Spa" class="nav-logo-img" /></a>
 				</div>
 				<ul class="nav-links">
 					<li><a href="/" data-i18n="nav_home">Inicio</a></li>
@@ -661,143 +695,426 @@
 				<p data-i18n="srv_hero_desc">Explora nuestro menú completo y diseña tu propia experiencia de relajación. Añade tus servicios favoritos y reserva por WhatsApp.</p>
 			</div>
 		</header>
-
-		<!-- Grid de Servicios -->
+		<!-- Tabs y Grid de Servicios -->
 		<main class="container">
-			<div class="services-grid">
-				<!-- Pedicure -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/PEDICURE-SPA.webp" alt="Pedicure" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_pedicure_name">Pedicure Zen</h3>
-							<p data-i18n="srv_pedicure_desc">Tratamiento reparador para pies que incluye exfoliación y cuidado profundo.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_pedicure_name', '/images/PEDICURE-SPA.webp')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
-						</button>
-					</div>
-				</div>
+			<div class="services-tabs">
+				<button class="tab-btn active" onclick="switchTab('tab-general')" data-i18n="tab_general">Servicios Generales</button>
+				<button class="tab-btn" onclick="switchTab('tab-packages')" data-i18n="tab_packages">Paquetes Day Spa</button>
+			</div>
 
-				<!-- Manicure -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/MANICURE.webp" alt="Manicure" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_manicure_name">Manicure Premium</h3>
-							<p data-i18n="srv_manicure_desc">Cuidado estético y relajante para tus manos con aceites esenciales.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_manicure_name', '/images/MANICURE.webp')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
-						</button>
-					</div>
-				</div>
+			<div id="tab-general" class="tab-content active">
+				<style>
+					/* ── Accordion Container ── */
+					.spa-menu-container { max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 0; }
 
-				<!-- Masajes faciales -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/masaje-facial.webp" alt="Masajes faciales" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_massage_facial_name">Masaje Facial</h3>
-							<p data-i18n="srv_massage_facial_desc">Estimula la microcirculación y relaja los músculos del rostro para un look fresco.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_massage_facial_name', '/images/masaje-facial.webp')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
-						</button>
-					</div>
-				</div>
+					/* ── Category Accordion ── */
+					.spa-menu-category { border-bottom: 1px solid rgba(197,163,86,0.3); }
+					.spa-menu-category:first-of-type { border-top: 1px solid rgba(197,163,86,0.3); }
 
-				<!-- Masaje relajante -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/masaje relajante.webp" alt="Masaje relajante" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_massage_relax_name">Masaje Relajante</h3>
-							<p data-i18n="srv_massage_relax_desc">Nuestro ritual estrella de 60 minutos para eliminar todo el estrés acumulado.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_massage_relax_name', '/images/masaje relajante.webp')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
-						</button>
-					</div>
-				</div>
+					/* Toggle header button */
+					.accordion-toggle {
+						display: flex; align-items: center; justify-content: space-between;
+						width: 100%; padding: 1.4rem 0.5rem; background: transparent; border: none;
+						cursor: pointer; text-align: left; gap: 1rem;
+						transition: background 0.2s;
+					}
+					.accordion-toggle:hover { background: rgba(197,163,86,0.06); }
+					.accordion-toggle-title {
+						font-family: 'Playfair Display', serif;
+						font-size: 1.4rem; font-weight: 700;
+						color: var(--color-primary, #6b5a3e);
+						letter-spacing: 0.02em;
+						transition: color 0.2s;
+					}
+					.accordion-toggle.open .accordion-toggle-title { color: var(--color-accent, #c5a356); }
+					.accordion-arrow {
+						width: 28px; height: 28px; border-radius: 50%;
+						border: 2px solid var(--color-accent, #c5a356);
+						display: flex; align-items: center; justify-content: center;
+						flex-shrink: 0;
+						transition: transform 0.35s cubic-bezier(.4,0,.2,1), background 0.2s;
+					}
+					.accordion-arrow svg { width: 14px; height: 14px; stroke: var(--color-accent, #c5a356); transition: transform 0.35s; }
+					.accordion-toggle.open .accordion-arrow { background: var(--color-accent, #c5a356); }
+					.accordion-toggle.open .accordion-arrow svg { stroke: #fff; transform: rotate(180deg); }
 
-				<!-- Masaje profundo -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/masaje profundo.webp" alt="Masaje profundo" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_massage_deep_name">Masaje Profundo</h3>
-							<p data-i18n="srv_massage_deep_desc">Técnica terapéutica que libera tensiones crónicas y nudos musculares.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_massage_deep_name', '/images/masaje profundo.webp')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
-						</button>
-					</div>
-				</div>
+					/* Collapsible body */
+					.accordion-body {
+						max-height: 0; overflow: hidden;
+						transition: max-height 0.45s cubic-bezier(.4,0,.2,1), padding 0.3s;
+						padding: 0 0.5rem;
+					}
+					.accordion-body.open { max-height: 4000px; padding-bottom: 1.5rem; }
 
-				<!-- Conoterapia -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/conoterapia.webp" alt="Conoterapia" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_conotherapy_name">Conoterapia</h3>
-							<p data-i18n="srv_conotherapy_desc">Limpieza natural de oídos con técnica ancestral para un equilibrio total.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_conotherapy_name', '/images/conoterapia.webp')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
-						</button>
-					</div>
-				</div>
+					/* ── Menu Items ── */
+					.menu-item { display: flex; justify-content: space-between; align-items: center; padding: 0.85rem 0; border-bottom: 1px dashed rgba(0,0,0,0.1); transition: background 0.2s; border-radius: 4px; }
+					.menu-item:last-child { border-bottom: none; }
+					.menu-item:hover { background: rgba(197,163,86,0.05); padding-left: 6px; }
+					.menu-item-info h4 { font-size: 1rem; margin: 0; color: #333; font-weight: 500; line-height: 1.4; }
+					.menu-item-action { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+					.menu-price { font-weight: 700; color: var(--color-accent, #c5a356); font-size: 1rem; min-width: 65px; text-align: right; }
+					.menu-add-btn { background: var(--color-primary, #6b5a3e); color: white; border: none; width: 30px; height: 30px; border-radius: 50%; font-size: 1.2rem; cursor: pointer; transition: transform 0.2s, background 0.2s; display: flex; align-items: center; justify-content: center; }
+					.menu-add-btn:hover { background: var(--color-accent, #c5a356); transform: scale(1.15); }
 
-				<!-- Aparatologia -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/Aparatologia.jpg" alt="Aparatologia" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_apparatus_name">Aparatología</h3>
-							<p data-i18n="srv_apparatus_desc">Tratamientos corporales y faciales con tecnología de vanguardia.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_apparatus_name', '/images/Aparatologia.jpg')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
-						</button>
-					</div>
-				</div>
+					/* Dark Mode */
+					body.dark-mode .accordion-toggle-title { color: #e8d9b5; }
+					body.dark-mode .accordion-toggle.open .accordion-toggle-title { color: var(--color-accent, #c5a356); }
+					body.dark-mode .menu-item-info h4 { color: #ddd; }
+					body.dark-mode .menu-item { border-bottom-color: rgba(255,255,255,0.08); }
+					body.dark-mode .accordion-toggle:hover { background: rgba(255,255,255,0.04); }
+				</style>
 
-				<!-- Faciales rejuvenecedores -->
-				<div class="service-card">
-					<div class="service-img-box">
-						<img src="/images/facial-rejuvenecedor.webp" alt="Faciales" />
-					</div>
-					<div class="service-info">
-						<div>
-							<h3 data-i18n="srv_facial_rejuv_name">Facial Rejuvenecedor</h3>
-							<p data-i18n="srv_facial_rejuv_desc">Regenera tu piel con activos avanzados y masaje reafirmante.</p>
-						</div>
-						<button class="add-to-cart-btn" onclick="addToCart('srv_facial_rejuv_name', '/images/facial-rejuvenecedor.webp')" data-i18n="srv_add_btn">
-							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
-							Añadir al Ritual
+				<div class="spa-menu-container">
+
+					<!-- FACIALES -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_facials">Faciales</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
 						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="fac_sea_moss">Facial Hidratante Sea Moss 60 min</h4></div><div class="menu-item-action"><span class="menu-price">$700</span><button class="menu-add-btn" onclick="addToCart('fac_sea_moss', '/images/oasis-logo.png', 700)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="fac_clarifying">Facial Nutritivo y Aclarante 60 min</h4></div><div class="menu-item-action"><span class="menu-price">$700</span><button class="menu-add-btn" onclick="addToCart('fac_clarifying', '/images/oasis-logo.png', 700)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="fac_detox">Facial Detox 60 min</h4></div><div class="menu-item-action"><span class="menu-price">$700</span><button class="menu-add-btn" onclick="addToCart('fac_detox', '/images/oasis-logo.png', 700)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="fac_passion">Facial Restaurador Passion Fruit</h4></div><div class="menu-item-action"><span class="menu-price">$700</span><button class="menu-add-btn" onclick="addToCart('fac_passion', '/images/oasis-logo.png', 700)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- FACIALES PREMIUM -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_premium_facials">Faciales Premium</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="pfac_deep">Limpieza Profunda Facial 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$800</span><button class="menu-add-btn" onclick="addToCart('pfac_deep', '/images/oasis-logo.png', 800)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="pfac_vitc">Facial Vitamina C 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$800</span><button class="menu-add-btn" onclick="addToCart('pfac_vitc', '/images/oasis-logo.png', 800)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="pfac_mens">Facial de Bienestar para Hombres 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$800</span><button class="menu-add-btn" onclick="addToCart('pfac_mens', '/images/oasis-logo.png', 800)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="pfac_antiaging">Facial Anti-edad 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$800</span><button class="menu-add-btn" onclick="addToCart('pfac_antiaging', '/images/oasis-logo.png', 800)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="pfac_oasis">Facial Restaurador Oasis 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$850</span><button class="menu-add-btn" onclick="addToCart('pfac_oasis', '/images/oasis-logo.png', 850)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- EXPERIENCIAS DE MASAJE -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_experiences">Experiencias de Masaje</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="exp_tequila">Experiencia Tequila (2 hrs)</h4></div><div class="menu-item-action"><span class="menu-price">$1,500</span><button class="menu-add-btn" onclick="addToCart('exp_tequila', '/images/oasis-logo.png', 1500)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="exp_prehispanic">Prehispánica (2 hrs)</h4></div><div class="menu-item-action"><span class="menu-price">$1,500</span><button class="menu-add-btn" onclick="addToCart('exp_prehispanic', '/images/oasis-logo.png', 1500)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="exp_oasis">OASIS (2 hrs)</h4></div><div class="menu-item-action"><span class="menu-price">$1,700</span><button class="menu-add-btn" onclick="addToCart('exp_oasis', '/images/oasis-logo.png', 1700)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="exp_two">Dos Océanos (1 hr)</h4></div><div class="menu-item-action"><span class="menu-price">$1,300</span><button class="menu-add-btn" onclick="addToCart('exp_two', '/images/oasis-logo.png', 1300)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- MASAJES RELAJANTES -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_relax_massages">Masajes Relajantes</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_hot">Piedras Calientes</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$950</span><button class="menu-add-btn" onclick="addToCart('msg_hot (70m)', '/images/oasis-logo.png', 950)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_hot">Piedras Calientes</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,200</span><button class="menu-add-btn" onclick="addToCart('msg_hot (90m)', '/images/oasis-logo.png', 1200)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_hot">Piedras Calientes</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,500</span><button class="menu-add-btn" onclick="addToCart('msg_hot (110m)', '/images/oasis-logo.png', 1500)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_anti">Anti Estrés</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$900</span><button class="menu-add-btn" onclick="addToCart('msg_anti (70m)', '/images/oasis-logo.png', 900)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_anti">Anti Estrés</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,150</span><button class="menu-add-btn" onclick="addToCart('msg_anti (90m)', '/images/oasis-logo.png', 1150)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_anti">Anti Estrés</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,550</span><button class="menu-add-btn" onclick="addToCart('msg_anti (110m)', '/images/oasis-logo.png', 1550)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_swe">Sueco</span> (50 min)</h4></div><div class="menu-item-action"><span class="menu-price">$600</span><button class="menu-add-btn" onclick="addToCart('msg_swe (50m)', '/images/oasis-logo.png', 600)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_swe">Sueco</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$800</span><button class="menu-add-btn" onclick="addToCart('msg_swe (70m)', '/images/oasis-logo.png', 800)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_swe">Sueco</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,050</span><button class="menu-add-btn" onclick="addToCart('msg_swe (90m)', '/images/oasis-logo.png', 1050)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_swe">Sueco</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,400</span><button class="menu-add-btn" onclick="addToCart('msg_swe (110m)', '/images/oasis-logo.png', 1400)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_lomi">Lomi Lomi</span> (50 min)</h4></div><div class="menu-item-action"><span class="menu-price">$600</span><button class="menu-add-btn" onclick="addToCart('msg_lomi (50m)', '/images/oasis-logo.png', 600)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_lomi">Lomi Lomi</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$800</span><button class="menu-add-btn" onclick="addToCart('msg_lomi (70m)', '/images/oasis-logo.png', 800)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_reflex">Reflexología</span> (50 min)</h4></div><div class="menu-item-action"><span class="menu-price">$600</span><button class="menu-add-btn" onclick="addToCart('msg_reflex (50m)', '/images/oasis-logo.png', 600)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_reflex">Reflexología</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$800</span><button class="menu-add-btn" onclick="addToCart('msg_reflex (70m)', '/images/oasis-logo.png', 800)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- MASAJES TERAPÉUTICOS -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_thera_massages">Masajes Terapéuticos</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_holo">Aromaterapia Holística</span> (50 min)</h4></div><div class="menu-item-action"><span class="menu-price">$650</span><button class="menu-add-btn" onclick="addToCart('msg_holo (50m)', '/images/oasis-logo.png', 650)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_holo">Aromaterapia Holística</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$850</span><button class="menu-add-btn" onclick="addToCart('msg_holo (70m)', '/images/oasis-logo.png', 850)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_holo">Aromaterapia Holística</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,100</span><button class="menu-add-btn" onclick="addToCart('msg_holo (90m)', '/images/oasis-logo.png', 1100)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_holo">Aromaterapia Holística</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,450</span><button class="menu-add-btn" onclick="addToCart('msg_holo (110m)', '/images/oasis-logo.png', 1450)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_thera">Terapéutico</span> (50 min)</h4></div><div class="menu-item-action"><span class="menu-price">$650</span><button class="menu-add-btn" onclick="addToCart('msg_thera (50m)', '/images/oasis-logo.png', 650)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_thera">Terapéutico</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$850</span><button class="menu-add-btn" onclick="addToCart('msg_thera (70m)', '/images/oasis-logo.png', 850)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_thera">Terapéutico</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,100</span><button class="menu-add-btn" onclick="addToCart('msg_thera (90m)', '/images/oasis-logo.png', 1100)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_thera">Terapéutico</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,450</span><button class="menu-add-btn" onclick="addToCart('msg_thera (110m)', '/images/oasis-logo.png', 1450)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- MASAJES DE TEJIDO PROFUNDO -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_deep_massages">Masajes de Tejido Profundo</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_deep">Tejido Profundo</span> (50 min)</h4></div><div class="menu-item-action"><span class="menu-price">$700</span><button class="menu-add-btn" onclick="addToCart('msg_deep (50m)', '/images/oasis-logo.png', 700)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_deep">Tejido Profundo</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$900</span><button class="menu-add-btn" onclick="addToCart('msg_deep (70m)', '/images/oasis-logo.png', 900)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_deep">Tejido Profundo</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,200</span><button class="menu-add-btn" onclick="addToCart('msg_deep (90m)', '/images/oasis-logo.png', 1200)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_deep">Tejido Profundo</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,550</span><button class="menu-add-btn" onclick="addToCart('msg_deep (110m)', '/images/oasis-logo.png', 1550)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_muscle">Descontracturante Profundo</span> (50 min)</h4></div><div class="menu-item-action"><span class="menu-price">$700</span><button class="menu-add-btn" onclick="addToCart('msg_muscle (50m)', '/images/oasis-logo.png', 700)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_muscle">Descontracturante Profundo</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$900</span><button class="menu-add-btn" onclick="addToCart('msg_muscle (70m)', '/images/oasis-logo.png', 900)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_muscle">Descontracturante Profundo</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,200</span><button class="menu-add-btn" onclick="addToCart('msg_muscle (90m)', '/images/oasis-logo.png', 1200)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_muscle">Descontracturante Profundo</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,550</span><button class="menu-add-btn" onclick="addToCart('msg_muscle (110m)', '/images/oasis-logo.png', 1550)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_cupping">Detox con Ventosas</span> (70 min)</h4></div><div class="menu-item-action"><span class="menu-price">$900</span><button class="menu-add-btn" onclick="addToCart('msg_cupping (70m)', '/images/oasis-logo.png', 900)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_cupping">Detox con Ventosas</span> (90 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,200</span><button class="menu-add-btn" onclick="addToCart('msg_cupping (90m)', '/images/oasis-logo.png', 1200)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4><span data-i18n="msg_cupping">Detox con Ventosas</span> (110 min)</h4></div><div class="menu-item-action"><span class="menu-price">$1,550</span><button class="menu-add-btn" onclick="addToCart('msg_cupping (110m)', '/images/oasis-logo.png', 1550)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- ENVOLTURAS CORPORALES -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_body_wraps">Envolturas Corporales</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="bw_exfoliation">Exfoliación Corporal 40 min</h4></div><div class="menu-item-action"><span class="menu-price">$500</span><button class="menu-add-btn" onclick="addToCart('bw_exfoliation', '/images/oasis-logo.png', 500)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="bw_tequila">Detox Tequila y Menta 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$850</span><button class="menu-add-btn" onclick="addToCart('bw_tequila', '/images/oasis-logo.png', 850)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="bw_chocolate">Nutrición de Chocolate</h4></div><div class="menu-item-action"><span class="menu-price">$850</span><button class="menu-add-btn" onclick="addToCart('bw_chocolate', '/images/oasis-logo.png', 850)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="bw_yogurt">Hidratación Yogurt y Miel 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$850</span><button class="menu-add-btn" onclick="addToCart('bw_yogurt', '/images/oasis-logo.png', 850)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="bw_lavender">Relajante de Lavanda 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$850</span><button class="menu-add-btn" onclick="addToCart('bw_lavender', '/images/oasis-logo.png', 850)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- MANICURA Y PEDICURA -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_mani_pedi">Manicura y Pedicura</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="mp_thera">Pedicura Terapéutica 60 min</h4></div><div class="menu-item-action"><span class="menu-price">$350</span><button class="menu-add-btn" onclick="addToCart('mp_thera', '/images/oasis-logo.png', 350)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="mp_reflex">Pedicura Reflexológica 70 min</h4></div><div class="menu-item-action"><span class="menu-price">$400</span><button class="menu-add-btn" onclick="addToCart('mp_reflex', '/images/oasis-logo.png', 400)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="mp_hot_stone">Pedicura Terapéutica con Piedras Calientes 80 min</h4></div><div class="menu-item-action"><span class="menu-price">$450</span><button class="menu-add-btn" onclick="addToCart('mp_hot_stone', '/images/oasis-logo.png', 450)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="mp_spa_mani">Manicura Spa</h4></div><div class="menu-item-action"><span class="menu-price">$300</span><button class="menu-add-btn" onclick="addToCart('mp_spa_mani', '/images/oasis-logo.png', 300)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="mp_premium_mani">Manicura Premium</h4></div><div class="menu-item-action"><span class="menu-price">$350</span><button class="menu-add-btn" onclick="addToCart('mp_premium_mani', '/images/oasis-logo.png', 350)">+</button></div></div>
+						</div>
+					</div>
+
+					<!-- AÑADIDOS -->
+					<div class="spa-menu-category">
+						<button class="accordion-toggle" onclick="toggleAccordion(this)" aria-expanded="false">
+							<span class="accordion-toggle-title" data-i18n="cat_addons">Añadidos</span>
+							<span class="accordion-arrow"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+						</button>
+						<div class="accordion-body">
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="ao_polish">Cambio de Esmalte</h4></div><div class="menu-item-action"><span class="menu-price">$80</span><button class="menu-add-btn" onclick="addToCart('ao_polish', '/images/oasis-logo.png', 80)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="ao_gel_app">Aplicación de Gel</h4></div><div class="menu-item-action"><span class="menu-price">$150</span><button class="menu-add-btn" onclick="addToCart('ao_gel_app', '/images/oasis-logo.png', 150)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="ao_gel_rem">Retiro de Gel</h4></div><div class="menu-item-action"><span class="menu-price">$100</span><button class="menu-add-btn" onclick="addToCart('ao_gel_rem', '/images/oasis-logo.png', 100)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="ao_rubber_app">Aplicación de Rubber</h4></div><div class="menu-item-action"><span class="menu-price">$250</span><button class="menu-add-btn" onclick="addToCart('ao_rubber_app', '/images/oasis-logo.png', 250)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="ao_rubber_ref">Relleno de Rubber</h4></div><div class="menu-item-action"><span class="menu-price">$200</span><button class="menu-add-btn" onclick="addToCart('ao_rubber_ref', '/images/oasis-logo.png', 200)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="ao_rubber_rem">Retiro de Rubber</h4></div><div class="menu-item-action"><span class="menu-price">$150</span><button class="menu-add-btn" onclick="addToCart('ao_rubber_rem', '/images/oasis-logo.png', 150)">+</button></div></div>
+							<div class="menu-item"><div class="menu-item-info"><h4 data-i18n="ao_rub_gel">Aplicación de Rubber y Gel</h4></div><div class="menu-item-action"><span class="menu-price">$350</span><button class="menu-add-btn" onclick="addToCart('ao_rub_gel', '/images/oasis-logo.png', 350)">+</button></div></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+
+			<!-- Pestaña 2: Paquetes Day Spa -->
+			<div id="tab-packages" class="tab-content">
+				<div class="text-center" style="margin-bottom: 2rem; max-width: 800px; margin-inline: auto;">
+					<p data-i18n="pkg_global_note" style="color: #666; font-style: italic;">Todos los paquetes Day Spa incluyen un descanso de 30 min. con snacks y copa de vino tinto. Amenidades incluidas.</p>
+				</div>
+				<div class="services-grid">
+					
+					<!-- 1. Anti-Stress -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/anti-estres.webp" alt="Anti-Stress" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_antistress_name">ANTI-STRESS | $1,400</h3>
+								<p data-i18n="pkg_antistress_desc">Anti-stress Massage 70min & Hydrating Sea Moss Facial 60 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_antistress_name', '/images/anti-estres.webp', 1400)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 2. Sensations -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/sensations.webp" alt="Sensations" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_sensations_name">SENSATIONS | $1,700</h3>
+								<p data-i18n="pkg_sensations_desc">Body Exfoliation 40 min. Lomi Lomi Massage 50min. Hot Stones Pedicure 80 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_sensations_name', '/images/sensations.webp', 1700)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 3. Harmony -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/harmony.jpg" alt="Harmony" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_harmony_name">HARMONY | $1,550</h3>
+								<p data-i18n="pkg_harmony_desc">Swedish Massage 50 min. Premium Manicure 50 min. Reflexology Pedicure 70min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_harmony_name', '/images/harmony.jpg', 1550)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 4. The One -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/the one.jpeg" alt="The One" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_theone_name">THE ONE | $2,000</h3>
+								<p data-i18n="pkg_theone_desc">Anti-Stress Massage 90 min. Body Exfoliation 40 min. Passion Fruit Facial 60 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_theone_name', '/images/the one.jpeg', 2000)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 5. Simple Beauty -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/simple beauty.jpg" alt="Simple Beauty" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_simplebeauty_name">SIMPLE BEAUTY | $1,100</h3>
+								<p data-i18n="pkg_simplebeauty_desc">Swedish Massage 45 min. & Passion Fruit Facial 45 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_simplebeauty_name', '/images/simple beauty.jpg', 1100)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 6. Digestive -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/digestive.webp" alt="Digestive" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_digestive_name">DIGESTIVE | $1,500</h3>
+								<p data-i18n="pkg_digestive_desc">Aromatherapeutic 90 min & Reflexology Pedicure 70 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_digestive_name', '/images/digestive.webp', 1500)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 7. Detox -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/detox.jpg" alt="Detox" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_detox_name">DETOX | $2,000</h3>
+								<p data-i18n="pkg_detox_desc">Cupping Massage 70 min. Detox Facial 60 min. Body Exfoliation 40 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_detox_name', '/images/detox.jpg', 2000)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 8. Muscle Melting -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/muscle melting.jpg" alt="Muscle Melting" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_muscle_name">MUSCLE MELTING | $1,300</h3>
+								<p data-i18n="pkg_muscle_desc">Muscle Melting Massage 70 min. Body Exfoliation 40 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_muscle_name', '/images/muscle melting.jpg', 1300)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 9. Relaxing -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/relaxing.jpg" alt="Relaxing" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_relaxing_name">RELAXING | $1,850</h3>
+								<p data-i18n="pkg_relaxing_desc">Hot Stones Massage 70 min. Detox Facial 60 min. Body Exfoliation 40 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_relaxing_name', '/images/relaxing.jpg', 1850)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 10. Smooth -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/smooth.jpg" alt="Smooth" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_smooth_name">SMOOTH | $1,200</h3>
+								<p data-i18n="pkg_smooth_desc">Sweadish Massage 45 min. Rejuvenate Facial 45 min. Therapeutic Pedicure 50 min.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_smooth_name', '/images/smooth.jpg', 1200)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
+					</div>
+
+					<!-- 11. Therapeutic -->
+					<div class="service-card">
+						<div class="service-img-box">
+							<img src="/images/therapeutic.webp" alt="Therapeutic" />
+						</div>
+						<div class="service-info">
+							<div>
+								<h3 data-i18n="pkg_therapeutic_name">THERAPEUTIC | $1,350</h3>
+								<p data-i18n="pkg_therapeutic_desc">Therapeutic Massages 70 min. Hot Stones pedicure.</p>
+							</div>
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_therapeutic_name', '/images/therapeutic.webp', 1350)" data-i18n="srv_add_btn">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+								Añadir al Ritual
+							</button>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -824,6 +1141,10 @@
 				<!-- Items se cargan aquí -->
 			</div>
 			<div class="cart-footer">
+				<div id="cart-total-info" style="display: none; justify-content: space-between; align-items: center; margin-bottom: 1rem; font-size: 1.2rem; font-weight: 700; border-top: 1px dashed #ccc; padding-top: 1rem;">
+					<span>Total Estimado:</span>
+					<span style="color: var(--color-accent);">$<span id="cart-total-value">0</span> MXN</span>
+				</div>
 				<button class="whatsapp-btn" onclick="reserveOnWhatsApp()">
 					<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 					<span data-i18n="cart_book_btn">Reservar por WhatsApp</span>
@@ -857,22 +1178,81 @@
 					btn_book: "Reservar",
 					srv_hero_title: "Nuestro Menú de Bienestar",
 					srv_hero_desc: "Explora nuestro menú completo y diseña tu propia experiencia de relajación. Añade tus servicios favoritos y reserva por WhatsApp.",
-					srv_pedicure_name: "Pedicura Terapéutica",
-					srv_pedicure_desc: "Tratamiento reparador para pies de 60 min con exfoliación y cuidado profundo.",
-					srv_manicure_name: "Manicura Spa",
-					srv_manicure_desc: "Cuidado estético y relajante para tus manos con aceites esenciales.",
-					srv_massage_facial_name: "Facial Premium",
-					srv_massage_facial_desc: "Tratamiento facial avanzado que restaura firmeza y luminosidad con ingredientes de primera.",
-					srv_massage_relax_name: "Masaje Relajante",
-					srv_massage_relax_desc: "Nuestro ritual estrella de 60 minutos para eliminar todo el estrés acumulado.",
-					srv_massage_deep_name: "Masaje de Tejido Profundo",
-					srv_massage_deep_desc: "Presión profunda que libera tensiones crónicas y nudos musculares.",
-					srv_conotherapy_name: "Masaje Terapéutico",
-					srv_conotherapy_desc: "Técnicas especializadas que alivian dolores musculares y mejoran la circulación.",
-					srv_apparatus_name: "Envolturas Corporales",
-					srv_apparatus_desc: "Tratamientos corporales con productos naturales para desintoxicar y nutrir tu piel.",
-					srv_facial_rejuv_name: "Pedicura Reflexológica",
-					srv_facial_rejuv_desc: "Pedicura de 70 min con técnicas reflexológicas para equilibrio total.",
+					cat_facials: "Faciales",
+					fac_sea_moss: "Facial Hidratante Sea Moss 60 min",
+					fac_clarifying: "Facial Nutritivo y Aclarante 60 min",
+					fac_detox: "Facial Detox 60 min",
+					fac_passion: "Facial Restaurador Passion Fruit",
+					cat_premium_facials: "Faciales Premium",
+					pfac_deep: "Limpieza Profunda Facial 80 min",
+					pfac_vitc: "Facial Vitamina C 80 min",
+					pfac_mens: "Facial de Bienestar para Hombres 80 min",
+					pfac_antiaging: "Facial Anti-edad 80 min",
+					pfac_oasis: "Facial Restaurador Oasis 80 min",
+					cat_body_wraps: "Envolturas Corporales",
+					bw_exfoliation: "Exfoliación Corporal 40 min",
+					bw_tequila: "Detox Tequila y Menta 80 min",
+					bw_chocolate: "Nutrición de Chocolate",
+					bw_yogurt: "Hidratación Yogurt y Miel 80 min",
+					bw_lavender: "Relajante de Lavanda 80 min",
+					cat_mani_pedi: "Manicura y Pedicura",
+					mp_thera: "Pedicura Terapéutica 60 min",
+					mp_reflex: "Pedicura Reflexológica 70 min",
+					mp_hot_stone: "Pedicura Terapéutica con Piedras Calientes 80 min",
+					mp_spa_mani: "Manicura Spa",
+					mp_premium_mani: "Manicura Premium",
+					cat_addons: "Añadidos",
+					ao_polish: "Cambio de Esmalte",
+					ao_gel_app: "Aplicación de Gel",
+					ao_gel_rem: "Retiro de Gel",
+					ao_rubber_app: "Aplicación de Rubber",
+					ao_rubber_ref: "Relleno de Rubber",
+					ao_rubber_rem: "Retiro de Rubber",
+					ao_rub_gel: "Aplicación de Rubber y Gel",
+					cat_massages: "Masajes",
+					cat_relax_massages: "Masajes Relajantes",
+					msg_hot: "Piedras Calientes",
+					msg_anti: "Anti Estrés",
+					msg_swe: "Sueco",
+					msg_lomi: "Lomi Lomi",
+					msg_reflex: "Reflexología",
+					cat_thera_massages: "Masajes Terapéuticos",
+					msg_holo: "Aromaterapia Holística",
+					msg_thera: "Terapéutico",
+					cat_deep_massages: "Masajes de Tejido Profundo",
+					msg_deep: "Tejido Profundo",
+					msg_muscle: "Descontracturante Profundo",
+					msg_cupping: "Detox con Ventosas",
+					cat_experiences: "Experiencias de Masaje",
+					exp_tequila: "Experiencia Tequila (2 hrs)",
+					exp_prehispanic: "Prehispánica (2 hrs)",
+					exp_oasis: "OASIS (2 hrs)",
+					exp_two: "Dos Océanos (1 hr)",
+					tab_general: "Servicios Generales",
+					tab_packages: "Paquetes Day Spa",
+					pkg_global_note: "Todos los paquetes Day Spa incluyen un descanso de 30 min. con snacks y copa de vino tinto. Amenidades incluidas.",
+					pkg_antistress_name: "ANTI-STRESS | $1,400",
+					pkg_antistress_desc: "Masaje Anti-estrés 70 min y Facial Hidratante Sea Moss 60 min.",
+					pkg_sensations_name: "SENSATIONS | $1,700",
+					pkg_sensations_desc: "Exfoliación Corporal 40 min. Masaje Lomi Lomi 50 min. Pedicura con Piedras Calientes 80 min.",
+					pkg_harmony_name: "HARMONY | $1,550",
+					pkg_harmony_desc: "Masaje Sueco 50 min. Manicura Premium 50 min. Pedicura Reflexológica 70 min.",
+					pkg_theone_name: "THE ONE | $2,000",
+					pkg_theone_desc: "Masaje Anti-estrés 90 min. Exfoliación Corporal 40 min. Facial de Maracuyá 60 min.",
+					pkg_simplebeauty_name: "SIMPLE BEAUTY | $1,100",
+					pkg_simplebeauty_desc: "Masaje Sueco 45 min. y Facial de Maracuyá 45 min.",
+					pkg_digestive_name: "DIGESTIVE | $1,500",
+					pkg_digestive_desc: "Masaje Aromaterapéutico 90 min y Pedicura Reflexológica 70 min.",
+					pkg_detox_name: "DETOX | $2,000",
+					pkg_detox_desc: "Masaje con Ventosas 70 min. Facial Detox 60 min. Exfoliación Corporal 40 min.",
+					pkg_muscle_name: "MUSCLE MELTING | $1,300",
+					pkg_muscle_desc: "Masaje Descontracturante Profundo 70 min. Exfoliación Corporal 40 min.",
+					pkg_relaxing_name: "RELAXING | $1,850",
+					pkg_relaxing_desc: "Masaje con Piedras Calientes 70 min. Facial Detox 60 min. Exfoliación Corporal 40 min.",
+					pkg_smooth_name: "SMOOTH | $1,200",
+					pkg_smooth_desc: "Masaje Sueco 45 min. Facial Rejuvenecedor 45 min. Pedicura Terapéutica 50 min.",
+					pkg_therapeutic_name: "THERAPEUTIC | $1,350",
+					pkg_therapeutic_desc: "Masajes Terapéuticos 70 min. Pedicura con Piedras Calientes.",
 					srv_add_btn: "Agregar a la Lista",
 					cart_title: "Tu Selección",
 					cart_empty: "Tu lista está vacía aún.",
@@ -890,22 +1270,81 @@
 					btn_book: "Book Now",
 					srv_hero_title: "Our Wellness Menu",
 					srv_hero_desc: "Explore our full menu and design your own relaxation experience. Add your favorite services and book via WhatsApp.",
-					srv_pedicure_name: "Therapeutic Pedicure",
-					srv_pedicure_desc: "60 min repairing foot treatment including exfoliation and deep care.",
-					srv_manicure_name: "Spa Manicure",
-					srv_manicure_desc: "Aesthetic and relaxing care for your hands with essential oils.",
-					srv_massage_facial_name: "Premium Facial",
-					srv_massage_facial_desc: "Advanced facial treatment that restores firmness and radiance with premium ingredients.",
-					srv_massage_relax_name: "Relaxing Massage",
-					srv_massage_relax_desc: "Our 60-minute star ritual to eliminate all accumulated stress.",
-					srv_massage_deep_name: "Deep Tissue Massage",
-					srv_massage_deep_desc: "Deep pressure that releases chronic tension and muscle knots.",
-					srv_conotherapy_name: "Therapeutic Massage",
-					srv_conotherapy_desc: "Specialized techniques that relieve muscle pain and improve circulation.",
-					srv_apparatus_name: "Body Wraps",
-					srv_apparatus_desc: "Body treatments with natural products to detoxify and nourish your skin.",
-					srv_facial_rejuv_name: "Reflexology Pedicure",
-					srv_facial_rejuv_desc: "70 min pedicure with reflexology techniques for total balance.",
+					cat_facials: "Facials",
+					fac_sea_moss: "Hydrating Sea Moss facial 60 min",
+					fac_clarifying: "Nurturing & clarifying facial 60 min",
+					fac_detox: "Detox facial 60 min",
+					fac_passion: "Restore Passion Fruit facial",
+					cat_premium_facials: "Premium Facials",
+					pfac_deep: "Deep cleansing facial 80 min",
+					pfac_vitc: "Vitamin C facial 80 min",
+					pfac_mens: "Mens well being nurturing facial 80 min",
+					pfac_antiaging: "Anti-aging facial 80 min",
+					pfac_oasis: "Restore Oasis facial 80 min",
+					cat_body_wraps: "Body Wraps",
+					bw_exfoliation: "Body exfoliation 40 min",
+					bw_tequila: "Detox tequila mint 80 min",
+					bw_chocolate: "Chocolate nurturing",
+					bw_yogurt: "Yogurt and honey hydrating 80 min",
+					bw_lavender: "Lavender relaxing 80 min",
+					cat_mani_pedi: "Manicure & Pedicures",
+					mp_thera: "Therapeutic pedicure 60 min",
+					mp_reflex: "Reflexology pedicure 70 min",
+					mp_hot_stone: "Hot stone therapeutic pedicure 80 min",
+					mp_spa_mani: "Spa manicure",
+					mp_premium_mani: "Premium manicure",
+					cat_addons: "Add-ons",
+					ao_polish: "Polish change",
+					ao_gel_app: "Gel application",
+					ao_gel_rem: "Gel removal",
+					ao_rubber_app: "Rubber application",
+					ao_rubber_ref: "Rubber Refiller",
+					ao_rubber_rem: "Rubber Removal",
+					ao_rub_gel: "Rubber and Gel application",
+					cat_massages: "Massages",
+					cat_relax_massages: "Relaxing Massages",
+					msg_hot: "Hotstones",
+					msg_anti: "Anti Stress",
+					msg_swe: "Swedish",
+					msg_lomi: "Lomi Lomi",
+					msg_reflex: "Reflexology",
+					cat_thera_massages: "Therapeutic Massages",
+					msg_holo: "Holistic Aromatherapy",
+					msg_thera: "Therapeutic",
+					cat_deep_massages: "Deep Tissue Massages",
+					msg_deep: "Deep Tissue",
+					msg_muscle: "Muscle Melting",
+					msg_cupping: "Detox Cupping",
+					cat_experiences: "Massage Experiences",
+					exp_tequila: "Tequila Experience (2 hrs)",
+					exp_prehispanic: "Prehispanic (2 hrs)",
+					exp_oasis: "OASIS (2 hrs)",
+					exp_two: "Two Oceans (1 hr)",
+					tab_general: "General Services",
+					tab_packages: "Day Spa Packages",
+					pkg_global_note: "All Day Spa Packages include a 30 min. break with snacks and a glass of red wine. Amenities included.",
+					pkg_antistress_name: "ANTI-STRESS | $1,400",
+					pkg_antistress_desc: "Anti-stress Massage 70min & Hydrating Sea Moss Facial 60 min.",
+					pkg_sensations_name: "SENSATIONS | $1,700",
+					pkg_sensations_desc: "Body Exfoliation 40 min. Lomi Lomi Massage 50 min. Hot Stones Pedicure 80 min.",
+					pkg_harmony_name: "HARMONY | $1,550",
+					pkg_harmony_desc: "Swedish Massage 50 min. Premium Manicure 50 min. Reflexology Pedicure 70 min.",
+					pkg_theone_name: "THE ONE | $2,000",
+					pkg_theone_desc: "Anti-Stress Massage 90 min. Body Exfoliation 40 min. Passion Fruit Facial 60 min.",
+					pkg_simplebeauty_name: "SIMPLE BEAUTY | $1,100",
+					pkg_simplebeauty_desc: "Swedish Massage 45 min. & Passion Fruit Facial 45 min.",
+					pkg_digestive_name: "DIGESTIVE | $1,500",
+					pkg_digestive_desc: "Aromatherapeutic 90 min & Reflexology Pedicure 70 min.",
+					pkg_detox_name: "DETOX | $2,000",
+					pkg_detox_desc: "Cupping Massage 70 min. Detox Facial 60 min. Body Exfoliation 40 min.",
+					pkg_muscle_name: "MUSCLE MELTING | $1,300",
+					pkg_muscle_desc: "Muscle Melting Massage 70 min. Body Exfoliation 40 min.",
+					pkg_relaxing_name: "RELAXING | $1,850",
+					pkg_relaxing_desc: "Hot Stones Massage 70 min. Detox Facial 60 min. Body Exfoliation 40 min.",
+					pkg_smooth_name: "SMOOTH | $1,200",
+					pkg_smooth_desc: "Swedish Massage 45 min. Rejuvenate Facial 45 min. Therapeutic Pedicure 50 min.",
+					pkg_therapeutic_name: "THERAPEUTIC | $1,350",
+					pkg_therapeutic_desc: "Therapeutic Massages 70 min. Hot Stones pedicure.",
 					srv_add_btn: "Add to List",
 					cart_title: "Your Selection",
 					cart_empty: "Your list is empty yet.",
@@ -984,7 +1423,7 @@
 						if (Array.isArray(parsed)) {
 							// Filtrar solo items que tengan una clave válida en translations
 							// o simplemente limpiar si detectamos formato viejo para evitar inconsistencias
-							const hasOldFormat = parsed.some(item => typeof item === 'string' || !translations['es'][item.name]);
+							const hasOldFormat = parsed.some(item => typeof item === 'string' || !translations['es'][item.name] || item.price === undefined);
 							
 							if (hasOldFormat) {
 								console.log("Detectado formato antiguo o inválido en carrito, limpiando...");
@@ -1005,7 +1444,7 @@
 				localStorage.setItem('oasis_cart', JSON.stringify(cart));
 			}
 
-			function addToCart(serviceKey, serviceImg) {
+			function addToCart(serviceKey, serviceImg, servicePrice = 0) {
 				const existingItem = cart.find(item => item.name === serviceKey);
 				
 				if (existingItem) {
@@ -1014,6 +1453,7 @@
 					cart.push({
 						name: serviceKey,
 						image: serviceImg,
+						price: servicePrice,
 						quantity: 1
 					});
 				}
@@ -1054,8 +1494,13 @@
 				const totalItems = cart.reduce((acc, item) => acc + (parseInt(item.quantity) || 0), 0);
 				countEl.innerText = totalItems;
 				
+				const cartTotalContainer = document.getElementById('cart-total-info');
+				const cartTotalVal = document.getElementById('cart-total-value');
+				let grandTotal = 0;
+				
 				if (cart.length === 0) {
 					itemsContainer.innerHTML = `<div style="text-align:center; color: #999; margin-top: 5rem;"><p>${translations[currentLang].cart_empty}</p></div>`;
+					if (cartTotalContainer) cartTotalContainer.style.display = 'none';
 					return;
 				}
 
@@ -1063,26 +1508,36 @@
 					const displayName = translations[currentLang][item.name] || item.name;
 					const img = item.image || '/images/spa_facilities.png';
 					const qty = item.quantity || 1;
+					const price = item.price || 0;
+					grandTotal += (price * qty);
 
 					return `
-					<div class="cart-item">
-						<img src="${img}" class="cart-item-img" alt="${displayName}">
-						<div class="cart-item-details">
-							<span class="cart-item-name">${displayName}</span>
-							<div class="quantity-controls">
-								<button class="qty-btn" onclick="changeQuantity(${index}, -1)" aria-label="Restar">-</button>
-								<span class="qty-value">${qty}</span>
-								<button class="qty-btn" onclick="changeQuantity(${index}, 1)" aria-label="Sumar">+</button>
+					<div class="cart-item" style="flex-direction: column; align-items: flex-start !important;">
+						<div style="display: flex; gap: 1rem; width: 100%; align-items: center;">
+							<img src="${img}" class="cart-item-img" alt="${displayName}">
+							<div class="cart-item-details" style="flex-grow: 1;">
+								<span class="cart-item-name">${displayName}</span>
+								<div style="color: var(--color-accent); font-weight: 600; margin-top: 5px;">$${price} MXN</div>
+								<div class="quantity-controls" style="margin-top: 5px;">
+									<button class="qty-btn" onclick="changeQuantity(${index}, -1)" aria-label="Restar">-</button>
+									<span class="qty-value">${qty}</span>
+									<button class="qty-btn" onclick="changeQuantity(${index}, 1)" aria-label="Sumar">+</button>
+								</div>
 							</div>
-						</div>
 							<button class="remove-item" onclick="removeItem(${index})" title="${translations[currentLang].cart_remove_tip}">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
 									<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
 								</svg>
 							</button>
+						</div>
 					</div>
 					`;
 				}).join('');
+				
+				if (cartTotalContainer) {
+					cartTotalContainer.style.display = 'flex';
+					if (cartTotalVal) cartTotalVal.innerText = grandTotal.toLocaleString();
+				}
 			}
 
 			function toggleCart(forceOpen = false) {
@@ -1104,12 +1559,16 @@
 				if (cart.length === 0) return;
 
 				const intro = translations[currentLang].wa_intro;
+				let grandTotal = 0;
 				const servicesList = cart.map(item => {
 					const name = translations[currentLang][item.name] || item.name;
-					return `${item.quantity}x ${name}`;
+					const price = item.price || 0;
+					grandTotal += (price * item.quantity);
+					return `${item.quantity}x ${name} ($${price} MXN c/u)`;
 				}).join("%0A- ");
 				
-				const message = `${intro}%0A%0A- ${servicesList}%0A%0AMi nombre es: `;
+				const totalMsg = `%0A%0ATotal Estimado: $${grandTotal.toLocaleString()} MXN`;
+				const message = `${intro}%0A%0A- ${servicesList}${totalMsg}%0A%0AMi nombre es: `;
 				const waNumber = "523223626879";
 				window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
 			}
@@ -1118,6 +1577,29 @@
 				initLangSelector();
 				initCart();
 			});
+
+			// Lógica para Pestañas (Tabs)
+			window.switchTab = function(tabId) {
+				document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+				document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+				
+				if (event && event.currentTarget) {
+					event.currentTarget.classList.add('active');
+				}
+				const targetTab = document.getElementById(tabId);
+				if (targetTab) {
+					targetTab.classList.add('active');
+				}
+			};
+
+			// Accordion logic for general services
+			window.toggleAccordion = function(btn) {
+				const body = btn.nextElementSibling;
+				const isOpen = btn.classList.contains('open');
+				btn.classList.toggle('open', !isOpen);
+				body.classList.toggle('open', !isOpen);
+				btn.setAttribute('aria-expanded', String(!isOpen));
+			};
 		</script>
 
 	</body>

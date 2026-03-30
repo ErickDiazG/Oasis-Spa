@@ -34,13 +34,13 @@
 		<!-- Navbar -->
 		<nav class="navbar">
 			<div class="nav-container">
-				<div class="logo">
+				<a href="/" class="logo">
 					<img
-						src="/logo-oasis.png"
-						alt="Oasis Massage & Spa Logo"
+						src="/images/oasis-logo.png"
+						alt="Oasis Massage & Spa"
 						class="nav-logo-img"
 					/>
-				</div>
+				</a>
 				<ul class="nav-links">
 					<li>
 						<a href="#servicios" data-i18n="nav_services"
@@ -96,9 +96,10 @@
 			<div class="hero-overlay"></div>
 			<div class="hero-content">
 				<img
-					src="/logo-oasis.png"
-					alt="Oasis Massage & Spa Logo"
-					class="hero-logo-img"
+					src="/images/oasis-logo.png"
+					alt="Oasis Massage & Spa"
+					class="hero-logo-img mb-4 fade-in-up"
+					style="animation-delay: 0.1s; width: 15rem; height: auto;"
 				/>
 				<h1 data-i18n="hero_title">
 					Tu oasis de relajación en <br />
@@ -158,14 +159,7 @@
 							<a href="#contacto" class="btn-outline-primary" data-i18n="book_now">Reservar ahora</a>
 						</div>
 					</div>
-					<div class="card service-card">
-						<img src="/images/facial-rejuvenecedor.webp" alt="Faciales Premium" />
-						<div class="card-content">
-							<h3 data-i18n="srv_facial_title">Faciales Premium</h3>
-							<p data-i18n="srv_facial_desc" style="margin-bottom: 1.5rem;">Tratamientos avanzados que restauran firmeza y luminosidad, reduciendo signos del tiempo con ingredientes de primera.</p>
-							<a href="#contacto" class="btn-outline-primary" data-i18n="book_now">Reservar ahora</a>
-						</div>
-					</div>
+
 				</div>
 				<div class="mt-4" style="margin-top: 3rem;">
 					<a
@@ -201,7 +195,7 @@
 				</div>
 				<div class="flex-half img-box">
 					<img
-						src="/images/spa-instalaciones.webp"
+						src="/images/instalaciones.jpg"
 						alt="Instalaciones del spa"
 						class="rounded-img shadow"
 					/>
@@ -222,44 +216,54 @@
 				<div class="gallery-carousel-wrapper">
 					<div class="gallery-carousel-track">
 						<img
-							src="/images/spa_gallery.png"
+							src="/images/galeria1.jpg"
 							alt="Galería 1"
 							class="gallery-img"
 						/>
 						<img
-							src="/images/spa_facilities.png"
-							alt="Galería 2"
-							class="gallery-img"
-						/>
-						<img
-							src="/images/spa_massage.png"
+							src="/images/galeria3.jpg"
 							alt="Galería 3"
 							class="gallery-img"
 						/>
 						<img
-							src="/images/spa_facial.png"
+							src="/images/galeria4.jpg"
 							alt="Galería 4"
+							class="gallery-img"
+						/>
+						<img
+							src="/images/galeria5.jpg"
+							alt="Galería 5"
+							class="gallery-img"
+						/>
+						<img
+							src="/images/galeria6.jpg"
+							alt="Galería 6"
 							class="gallery-img"
 						/>
 						<!-- Duplicado para crear el loop infinito -->
 						<img
-							src="/images/spa_gallery.png"
+							src="/images/galeria1.jpg"
 							alt="Galería 1"
 							class="gallery-img"
 						/>
 						<img
-							src="/images/spa_facilities.png"
-							alt="Galería 2"
-							class="gallery-img"
-						/>
-						<img
-							src="/images/spa_massage.png"
+							src="/images/galeria3.jpg"
 							alt="Galería 3"
 							class="gallery-img"
 						/>
 						<img
-							src="/images/spa_facial.png"
+							src="/images/galeria4.jpg"
 							alt="Galería 4"
+							class="gallery-img"
+						/>
+						<img
+							src="/images/galeria5.jpg"
+							alt="Galería 5"
+							class="gallery-img"
+						/>
+						<img
+							src="/images/galeria6.jpg"
+							alt="Galería 6"
 							class="gallery-img"
 						/>
 					</div>
@@ -793,6 +797,7 @@
 		font-weight: 400;
 		color: var(--color-text);
 	}
+
 	.section-title {
 		font-size: 2.5rem;
 		margin-bottom: 0.5rem;
@@ -824,6 +829,21 @@
 	}
 	.bg-dark {
 		background-color: var(--color-bg-dark);
+		color: var(--color-bg-light);
+	}
+	.bg-dark h1,
+	.bg-dark h2,
+	.bg-dark h3,
+	.bg-dark h4,
+	.bg-dark h5,
+	.bg-dark h6,
+	.bg-dark p,
+	.bg-dark li,
+	.bg-dark .features-list li {
+		color: rgba(250, 248, 245, 0.9);
+	}
+	.bg-dark .section-title {
+		color: var(--color-primary);
 	}
 	.bg-primary {
 		background-color: var(--color-primary);
@@ -1053,15 +1073,14 @@
 
 	/* Hero */
 	.hero {
-		position: relative;
 		min-height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		padding-top: 80px;
-		padding-bottom: 5rem;
-		background: url("/images/spa_hero.png") center/cover no-repeat;
+		position: relative;
+		background: url('/images/premium_spa_hero.png') center/cover no-repeat fixed; /* Imagen del hero */
+		overflow: hidden;
 	}
 	.hero-overlay {
 		position: absolute;
@@ -1071,8 +1090,8 @@
 		height: 100%;
 		background: linear-gradient(
 			to bottom,
-			rgba(249, 247, 242, 0.4),
-			rgba(249, 247, 242, 0.8)
+			rgba(26, 26, 26, 0.6),
+			rgba(26, 26, 26, 0.85)
 		);
 	}
 	.hero-content {
@@ -1085,11 +1104,6 @@
 	.hero-content .badge {
 		display: inline-block;
 		padding: 0.4rem 1rem;
-		background-color: rgba(167, 175, 145, 0.2);
-		color: var(--color-primary);
-		border-radius: 20px;
-		font-size: 0.9rem;
-		font-weight: 500;
 		text-transform: uppercase;
 		letter-spacing: 1px;
 		margin-bottom: 1.5rem;
@@ -1098,7 +1112,7 @@
 		font-size: 4rem;
 		line-height: 1.1;
 		margin-bottom: 1.5rem;
-		color: var(--color-text);
+		color: var(--color-bg-light); /* Cream for contrast on dark */
 	}
 	.hero-content h1 em {
 		font-style: italic;
@@ -1108,7 +1122,7 @@
 	.hero-content p {
 		font-size: 1.2rem;
 		margin-bottom: 2.5rem;
-		color: #555;
+		color: rgba(250, 248, 245, 0.9); /* Off-white for contrast */
 	}
 	.hero-actions {
 		display: flex;
