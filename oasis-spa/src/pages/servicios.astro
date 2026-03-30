@@ -1,0 +1,1124 @@
+---
+---
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<title>Servicios | Oasis Massage & Spa</title>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--color-primary: #C5A356;      /* Dorado del logo */
+				--color-secondary: #2A2A2A;    /* Negro profundo */
+				--color-accent: #4ABFAD;       /* Teal/turquesa */
+				--color-text: #2E2E2E;         /* Charcoal */
+				--color-white: #ffffff;
+				--color-dark: #1A1A1A;
+				--color-light: #FAF8F5;
+			}
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				font-family: 'Outfit', sans-serif;
+				color: var(--color-text);
+				background-color: var(--color-light);
+				line-height: 1.6;
+				overflow-x: hidden;
+			}
+
+			h1, h2, h3, h4 {
+				font-family: 'Playfair Display', serif;
+			}
+
+			.container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0 1.5rem;
+			}
+
+			/* Navbar (Copied for consistency) */
+			.navbar {
+				position: fixed;
+				top: 0;
+				width: 100%;
+				background: rgba(249, 247, 242, 0.95);
+				backdrop-filter: blur(10px);
+				-webkit-backdrop-filter: blur(10px);
+				z-index: 1000;
+				padding: 0.5rem 0;
+				box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+				transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			.nav-container {
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 0.5rem 1.5rem;
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
+
+			.nav-logo-img {
+				height: 45px;
+				width: auto;
+				object-fit: contain;
+			}
+
+			.nav-links {
+				display: flex;
+				list-style: none;
+				gap: 2.5rem;
+			}
+
+			.nav-links a {
+				text-decoration: none;
+				color: var(--color-text);
+				font-weight: 400;
+				font-size: 0.95rem;
+				letter-spacing: 0.5px;
+				transition: color 0.3s ease;
+			}
+
+			.nav-links a:hover {
+				color: var(--color-primary);
+			}
+
+			.btn-primary {
+				background-color: var(--color-accent);
+				color: var(--color-white);
+				padding: 0.7rem 1.5rem;
+				border-radius: 50px;
+				text-decoration: none;
+				font-weight: 600;
+				letter-spacing: 0.5px;
+				transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+				border: none;
+				cursor: pointer;
+				font-family: 'Outfit', sans-serif;
+				box-shadow: 0 4px 15px rgba(212, 163, 115, 0.2);
+			}
+
+			.btn-primary:hover {
+				background-color: #3da99a;
+				transform: translateY(-2px);
+				box-shadow: 0 8px 25px rgba(74, 191, 173, 0.3);
+			}
+
+			.nav-actions {
+				display: flex;
+				align-items: center;
+				gap: 1.5rem;
+			}
+
+			.lang-selector {
+				position: relative;
+			}
+
+			.lang-btn {
+				background: none;
+				border: none;
+				font-family: inherit;
+				font-size: 0.95rem;
+				font-weight: 500;
+				color: var(--color-text);
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				gap: 0.4rem;
+				transition: color 0.3s;
+			}
+
+			.lang-btn:hover {
+				color: var(--color-accent);
+			}
+
+			.lang-btn .arrow {
+				font-size: 0.6rem;
+				transition: transform 0.3s;
+			}
+
+			.lang-menu {
+				position: absolute;
+				top: 100%;
+				right: 0;
+				margin-top: 0.5rem;
+				background: white;
+				border-radius: 8px;
+				box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+				list-style: none;
+				padding: 0.5rem 0;
+				min-width: 130px;
+				opacity: 0;
+				visibility: hidden;
+				transform: translateY(-10px);
+				transition: all 0.3s ease;
+				z-index: 1000;
+			}
+
+			.lang-menu.show {
+				opacity: 1;
+				visibility: visible;
+				transform: translateY(0);
+			}
+
+			.lang-menu li a {
+				text-align: left;
+				display: flex;
+				align-items: center;
+				gap: 0.8rem;
+				padding: 0.6rem 1.2rem;
+				font-size: 0.9rem;
+				font-weight: 500;
+				color: var(--color-text);
+				transition: background 0.2s, color 0.2s;
+				text-decoration: none;
+			}
+
+			.nav-flag {
+				width: 22px;
+				height: auto;
+				border-radius: 2px;
+				box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+			}
+
+			.lang-menu li a:hover {
+				background: #f9f7f2;
+				color: var(--color-primary);
+			}
+
+			/* Header Sección */
+			.services-hero {
+				padding: 180px 0 100px;
+				background: linear-gradient(rgba(249, 247, 242, 0.9), rgba(249, 247, 242, 0.9)), url("/images/spa-sala.webp");
+				background-size: cover;
+				background-position: center;
+				text-align: center;
+			}
+
+			.services-hero h1 {
+				font-size: 3.5rem;
+				color: var(--color-dark);
+				margin-bottom: 1rem;
+			}
+
+			.services-hero p {
+				font-size: 1.2rem;
+				color: #666;
+				max-width: 600px;
+				margin: 0 auto;
+			}
+
+			/* Grid de Servicios */
+			.services-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+				gap: 2rem;
+				padding: 4rem 0 8rem;
+			}
+
+			.service-card {
+				background: var(--color-white);
+				border-radius: 20px;
+				overflow: hidden;
+				box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+				transition: transform 0.4s ease, box-shadow 0.4s ease;
+				display: flex;
+				flex-direction: column;
+				border: 1px solid rgba(167, 175, 145, 0.05);
+			}
+
+			.service-card:hover {
+				transform: translateY(-10px);
+				box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+			}
+
+			.service-img-box {
+				height: 200px;
+				overflow: hidden;
+				position: relative;
+			}
+
+			.service-img-box img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				transition: transform 0.6s ease;
+			}
+
+			.service-card:hover .service-img-box img {
+				transform: scale(1.1);
+			}
+
+			.service-info {
+				padding: 1.5rem;
+				flex-grow: 1;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			.service-info h3 {
+				font-size: 1.4rem;
+				margin-bottom: 0.5rem;
+				color: var(--color-dark);
+			}
+
+			.service-info p {
+				font-size: 0.9rem;
+				color: #777;
+				margin-bottom: 1.5rem;
+			}
+
+			.add-to-cart-btn {
+				width: 100%;
+				padding: 0.8rem;
+				background: var(--color-light);
+				color: var(--color-text);
+				border: 1px solid var(--color-primary);
+				border-radius: 12px;
+				cursor: pointer;
+				font-weight: 500;
+				transition: all 0.3s ease;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5rem;
+			}
+
+			.add-to-cart-btn:hover {
+				background: var(--color-primary);
+				color: var(--color-white);
+			}
+
+			/* Carrito Flotante */
+			.cart-float {
+				position: fixed;
+				bottom: 30px;
+				right: 30px; /* Movido a la derecha */
+				z-index: 1001;
+			}
+
+			.cart-trigger {
+				width: 65px;
+				height: 65px;
+				background: var(--color-dark);
+				color: var(--color-white);
+				border-radius: 50%;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				cursor: pointer;
+				box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+				position: relative;
+				transition: all 0.3s ease;
+			}
+
+			.cart-trigger:hover {
+				transform: scale(1.1);
+				background: var(--color-accent);
+			}
+
+			.cart-count {
+				position: absolute;
+				top: -5px;
+				right: -5px;
+				background: #ff4757;
+				color: white;
+				width: 24px;
+				height: 24px;
+				border-radius: 50%;
+				font-size: 12px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-weight: 600;
+				border: 2px solid white;
+			}
+
+			/* Panel Lateral del Carrito */
+			.cart-panel {
+				position: fixed;
+				top: 0;
+				right: -400px;
+				width: 100%;
+				max-width: 400px;
+				height: 100%;
+				background: var(--color-white);
+				z-index: 2000;
+				box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+				transition: right 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+				display: flex;
+				flex-direction: column;
+				padding: 2rem;
+			}
+
+			.cart-panel.active {
+				right: 0;
+			}
+
+			.cart-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2rem;
+				border-bottom: 1px solid #eee;
+				padding-bottom: 1rem;
+			}
+
+			.close-cart {
+				cursor: pointer;
+				background: none;
+				border: none;
+				font-size: 1.5rem;
+				color: #999;
+			}
+
+			.cart-items {
+				flex-grow: 1;
+				overflow-y: auto;
+				margin-bottom: 2rem;
+			}
+
+		</style>
+
+		<style is:global>
+			/* Estilos Globales para el Carrito (Dinámico) */
+			.cart-item {
+				display: flex !important;
+				gap: 1rem !important;
+				align-items: center !important;
+				padding: 1rem !important;
+				background: #f9f7f2 !important; /* var(--color-light) */
+				border-radius: 16px !important;
+				margin-bottom: 1rem !important;
+				border: 1px solid rgba(167, 175, 145, 0.1) !important;
+				animation: slideIn 0.3s ease forwards;
+			}
+
+			.cart-item-img {
+				width: 70px !important;
+				height: 70px !important;
+				min-width: 70px !important;
+				max-width: 70px !important;
+				border-radius: 12px !important;
+				object-fit: cover !important;
+				flex-shrink: 0 !important;
+				background: #eee !important;
+			}
+
+			.cart-item-details {
+				flex-grow: 1 !important;
+				min-width: 0; /* Para evitar desbordamiento de texto */
+			}
+
+			.cart-item-name {
+				font-size: 0.95rem !important;
+				font-weight: 500 !important;
+				margin-bottom: 0.4rem !important;
+				display: block !important;
+				white-space: nowrap;
+				overflow: hidden;
+				text-overflow: ellipsis;
+			}
+
+			.quantity-controls {
+				display: flex !important;
+				align-items: center !important;
+				gap: 0.8rem !important;
+				background: white !important;
+				padding: 4px 8px !important;
+				border-radius: 20px !important;
+				width: fit-content !important;
+				border: 1px solid #eee !important;
+			}
+
+			.remove-item {
+				color: #999 !important;
+				cursor: pointer !important;
+				background: none !important;
+				border: none !important;
+				padding: 8px !important;
+				transition: all 0.2s ease !important;
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				flex-shrink: 0 !important;
+			}
+
+			.remove-item:hover { color: #ff4757 !important; transform: scale(1.1) !important; }
+
+			.qty-btn {
+				background: none !important;
+				border: none !important;
+				width: 24px !important;
+				height: 24px !important;
+				display: flex !important;
+				align-items: center !important;
+				justify-content: center !important;
+				cursor: pointer !important;
+				color: #C5A356 !important; /* var(--color-primary) */
+				font-size: 1.1rem !important;
+				transition: color 0.2s !important;
+			}
+
+			.qty-btn:hover { color: #4ABFAD !important; } /* var(--color-accent) */
+
+			.qty-value { 
+				font-size: 0.9rem !important; 
+				font-weight: 600 !important; 
+				min-width: 15px !important; 
+				text-align: center !important; 
+				color: #2d2d2d !important;
+			}
+
+			@keyframes slideIn {
+				from { transform: translateX(20px); opacity: 0; }
+				to { transform: translateX(0); opacity: 1; }
+			}
+
+			@keyframes fadeInUp {
+				from { transform: translateY(30px); opacity: 0; }
+				to { transform: translateY(0); opacity: 1; }
+			}
+
+			.pulse {
+				animation: pulse-trigger 0.4s ease;
+			}
+
+			@keyframes pulse-trigger {
+				0% { transform: scale(1); }
+				50% { transform: scale(1.3); }
+				100% { transform: scale(1); }
+			}
+
+			.cart-footer {
+				border-top: 1px solid #eee;
+				padding-top: 2rem;
+			}
+
+			.whatsapp-btn {
+				width: 100%;
+				padding: 1.2rem;
+				background: #25d366;
+				color: white;
+				border: none;
+				border-radius: 50px;
+				font-size: 1.1rem;
+				font-weight: 600;
+				cursor: pointer;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.8rem;
+				transition: all 0.3s ease;
+				text-decoration: none;
+			}
+
+			.whatsapp-btn:hover {
+				background: #20ba59;
+				transform: translateY(-3px);
+				box-shadow: 0 10px 20px rgba(37, 211, 102, 0.2);
+			}
+
+			.overlay {
+				position: fixed;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.5);
+				backdrop-filter: blur(4px);
+				z-index: 1999;
+				display: none;
+				opacity: 0;
+				transition: opacity 0.3s ease;
+			}
+
+			.overlay.active {
+				display: block;
+				opacity: 1;
+			}
+
+			/* Footer (Copied for consistency) */
+			.footer {
+				background-color: var(--color-primary);
+				padding: 3rem 0;
+				margin-top: 8rem;
+				text-align: center;
+			}
+			.footer h3 {
+				color: var(--color-white);
+				font-size: 2rem;
+				margin-bottom: 0.5rem;
+			}
+			.footer p {
+				color: var(--color-white);
+				opacity: 0.8;
+			}
+			.footer-copy {
+				margin-top: 2rem;
+				border-top: 1px solid rgba(255, 255, 255, 0.2);
+				padding-top: 1.5rem;
+			}
+			.dev-link {
+				color: var(--color-white);
+				font-weight: 600;
+				text-decoration: none;
+				transition: opacity 0.3s;
+			}
+			.dev-link:hover {
+				opacity: 0.7;
+			}
+
+			@media (max-width: 768px) {
+				.nav-links { display: none !important; }
+				.nav-container { padding: 0.5rem 1rem; }
+				.nav-logo-img { height: 38px; }
+				.btn-primary { padding: 0.6rem 1rem; font-size: 0.85rem; }
+				.services-hero h1 { font-size: 2.5rem; }
+				.cart-panel { max-width: 100%; }
+			}
+
+			@media (min-width: 769px) {
+				.back-home-btn {
+					display: none;
+				}
+			}
+
+			.back-home-btn {
+				color: var(--color-accent);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.5rem;
+				transition: transform 0.3s ease;
+			}
+
+			.back-home-btn:hover {
+				transform: translateX(-3px);
+			}
+		</style>
+	</head>
+	<body>
+		<!-- Navbar -->
+		<nav class="navbar">
+			<div class="nav-container">
+				<a href="/" class="back-home-btn" aria-label="Ir al Inicio">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+						<line x1="19" y1="12" x2="5" y2="12"></line>
+						<polyline points="12 19 5 12 12 5"></polyline>
+					</svg>
+				</a>
+				<div class="logo">
+					<a href="/"><img src="/logo-oasis.png" alt="Oasis Massage & Spa" class="nav-logo-img" /></a>
+				</div>
+				<ul class="nav-links">
+					<li><a href="/" data-i18n="nav_home">Inicio</a></li>
+					<li><a href="/#instalaciones" data-i18n="nav_facilities">Instalaciones</a></li>
+					<li><a href="/#contacto" data-i18n="nav_contact">Contacto</a></li>
+				</ul>
+				<div class="nav-actions">
+					<div class="lang-selector">
+						<button class="lang-btn" aria-haspopup="true" aria-expanded="false">
+							<img id="selected-flag" src="https://flagcdn.com/w40/mx.png" alt="ES Flag" class="nav-flag" />
+							<span id="current-lang">ES</span>
+							<span class="arrow">▼</span>
+						</button>
+						<ul class="lang-menu">
+							<li><a href="#" data-lang="es">
+								<img src="https://flagcdn.com/w40/mx.png" alt="ES" class="nav-flag" />
+								Español
+							</a></li>
+							<li><a href="#" data-lang="en">
+								<img src="https://flagcdn.com/w40/us.png" alt="EN" class="nav-flag" />
+								English
+							</a></li>
+						</ul>
+					</div>
+					<a href="/#contacto" class="btn-primary" data-i18n="btn_book">Reservar</a>
+				</div>
+			</div>
+		</nav>
+
+		<!-- Hero Section -->
+		<header class="services-hero">
+			<div class="container" style="animation: fadeInUp 1s ease forwards;">
+				<h1 data-i18n="srv_hero_title">Momentos de Paz</h1>
+				<p data-i18n="srv_hero_desc">Explora nuestro menú completo y diseña tu propia experiencia de relajación. Añade tus servicios favoritos y reserva por WhatsApp.</p>
+			</div>
+		</header>
+
+		<!-- Grid de Servicios -->
+		<main class="container">
+			<div class="services-grid">
+				<!-- Pedicure -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/PEDICURE-SPA.webp" alt="Pedicure" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_pedicure_name">Pedicure Zen</h3>
+							<p data-i18n="srv_pedicure_desc">Tratamiento reparador para pies que incluye exfoliación y cuidado profundo.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_pedicure_name', '/images/PEDICURE-SPA.webp')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+
+				<!-- Manicure -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/MANICURE.webp" alt="Manicure" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_manicure_name">Manicure Premium</h3>
+							<p data-i18n="srv_manicure_desc">Cuidado estético y relajante para tus manos con aceites esenciales.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_manicure_name', '/images/MANICURE.webp')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+
+				<!-- Masajes faciales -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/masaje-facial.webp" alt="Masajes faciales" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_massage_facial_name">Masaje Facial</h3>
+							<p data-i18n="srv_massage_facial_desc">Estimula la microcirculación y relaja los músculos del rostro para un look fresco.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_massage_facial_name', '/images/masaje-facial.webp')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+
+				<!-- Masaje relajante -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/masaje relajante.webp" alt="Masaje relajante" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_massage_relax_name">Masaje Relajante</h3>
+							<p data-i18n="srv_massage_relax_desc">Nuestro ritual estrella de 60 minutos para eliminar todo el estrés acumulado.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_massage_relax_name', '/images/masaje relajante.webp')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+
+				<!-- Masaje profundo -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/masaje profundo.webp" alt="Masaje profundo" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_massage_deep_name">Masaje Profundo</h3>
+							<p data-i18n="srv_massage_deep_desc">Técnica terapéutica que libera tensiones crónicas y nudos musculares.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_massage_deep_name', '/images/masaje profundo.webp')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+
+				<!-- Conoterapia -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/conoterapia.webp" alt="Conoterapia" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_conotherapy_name">Conoterapia</h3>
+							<p data-i18n="srv_conotherapy_desc">Limpieza natural de oídos con técnica ancestral para un equilibrio total.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_conotherapy_name', '/images/conoterapia.webp')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+
+				<!-- Aparatologia -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/Aparatologia.jpg" alt="Aparatologia" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_apparatus_name">Aparatología</h3>
+							<p data-i18n="srv_apparatus_desc">Tratamientos corporales y faciales con tecnología de vanguardia.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_apparatus_name', '/images/Aparatologia.jpg')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+
+				<!-- Faciales rejuvenecedores -->
+				<div class="service-card">
+					<div class="service-img-box">
+						<img src="/images/facial-rejuvenecedor.webp" alt="Faciales" />
+					</div>
+					<div class="service-info">
+						<div>
+							<h3 data-i18n="srv_facial_rejuv_name">Facial Rejuvenecedor</h3>
+							<p data-i18n="srv_facial_rejuv_desc">Regenera tu piel con activos avanzados y masaje reafirmante.</p>
+						</div>
+						<button class="add-to-cart-btn" onclick="addToCart('srv_facial_rejuv_name', '/images/facial-rejuvenecedor.webp')" data-i18n="srv_add_btn">
+							<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+							Añadir al Ritual
+						</button>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<!-- Carrito Flotante -->
+		<div class="cart-float">
+			<div class="cart-trigger" id="cart-trigger" onclick="toggleCart()">
+				<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+				<span class="cart-count" id="cart-count">0</span>
+			</div>
+		</div>
+
+		</div>
+
+		<!-- Panel del Carrito -->
+		<div class="overlay" id="cart-overlay" onclick="toggleCart()"></div>
+		<div class="cart-panel" id="cart-panel">
+			<div class="cart-header">
+				<h2 data-i18n="cart_title">Tu Selección Zen</h2>
+				<button class="close-cart" onclick="toggleCart()">&times;</button>
+			</div>
+			<div class="cart-items" id="cart-items-container">
+				<!-- Items se cargan aquí -->
+			</div>
+			<div class="cart-footer">
+				<button class="whatsapp-btn" onclick="reserveOnWhatsApp()">
+					<svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.067 2.877 1.215 3.076.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+					<span data-i18n="cart_book_btn">Reservar por WhatsApp</span>
+				</button>
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer class="footer">
+			<div class="container footer-content">
+				<div class="footer-brand">
+					<h3 data-i18n="footer_brand">Oasis Massage & Spa</h3>
+					<p data-i18n="footer_desc">
+						Relajación profunda, belleza natural.
+					</p>
+				</div>
+				<div class="footer-copy">
+					<p data-i18n="footer_copy">
+						© 2026 Desarrollado por <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.
+					</p>
+				</div>
+			</div>
+		</footer>
+
+		<script is:inline>
+			const translations = {
+				es: {
+					nav_home: "Inicio",
+					nav_facilities: "Instalaciones",
+					nav_contact: "Contacto",
+					btn_book: "Reservar",
+					srv_hero_title: "Nuestro Menú de Bienestar",
+					srv_hero_desc: "Explora nuestro menú completo y diseña tu propia experiencia de relajación. Añade tus servicios favoritos y reserva por WhatsApp.",
+					srv_pedicure_name: "Pedicura Terapéutica",
+					srv_pedicure_desc: "Tratamiento reparador para pies de 60 min con exfoliación y cuidado profundo.",
+					srv_manicure_name: "Manicura Spa",
+					srv_manicure_desc: "Cuidado estético y relajante para tus manos con aceites esenciales.",
+					srv_massage_facial_name: "Facial Premium",
+					srv_massage_facial_desc: "Tratamiento facial avanzado que restaura firmeza y luminosidad con ingredientes de primera.",
+					srv_massage_relax_name: "Masaje Relajante",
+					srv_massage_relax_desc: "Nuestro ritual estrella de 60 minutos para eliminar todo el estrés acumulado.",
+					srv_massage_deep_name: "Masaje de Tejido Profundo",
+					srv_massage_deep_desc: "Presión profunda que libera tensiones crónicas y nudos musculares.",
+					srv_conotherapy_name: "Masaje Terapéutico",
+					srv_conotherapy_desc: "Técnicas especializadas que alivian dolores musculares y mejoran la circulación.",
+					srv_apparatus_name: "Envolturas Corporales",
+					srv_apparatus_desc: "Tratamientos corporales con productos naturales para desintoxicar y nutrir tu piel.",
+					srv_facial_rejuv_name: "Pedicura Reflexológica",
+					srv_facial_rejuv_desc: "Pedicura de 70 min con técnicas reflexológicas para equilibrio total.",
+					srv_add_btn: "Agregar a la Lista",
+					cart_title: "Tu Selección",
+					cart_empty: "Tu lista está vacía aún.",
+					cart_book_btn: "Reservar por WhatsApp",
+					footer_brand: "Oasis Massage & Spa",
+					footer_desc: "Relajación profunda, belleza natural.",
+					footer_copy: '&copy; Desarrollado por <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
+					wa_intro: "Hola, me gustaría reservar los siguientes servicios en Oasis Massage & Spa:",
+					cart_remove_tip: "Eliminar de la lista"
+				},
+				en: {
+					nav_home: "Home",
+					nav_facilities: "Facilities",
+					nav_contact: "Contact",
+					btn_book: "Book Now",
+					srv_hero_title: "Our Wellness Menu",
+					srv_hero_desc: "Explore our full menu and design your own relaxation experience. Add your favorite services and book via WhatsApp.",
+					srv_pedicure_name: "Therapeutic Pedicure",
+					srv_pedicure_desc: "60 min repairing foot treatment including exfoliation and deep care.",
+					srv_manicure_name: "Spa Manicure",
+					srv_manicure_desc: "Aesthetic and relaxing care for your hands with essential oils.",
+					srv_massage_facial_name: "Premium Facial",
+					srv_massage_facial_desc: "Advanced facial treatment that restores firmness and radiance with premium ingredients.",
+					srv_massage_relax_name: "Relaxing Massage",
+					srv_massage_relax_desc: "Our 60-minute star ritual to eliminate all accumulated stress.",
+					srv_massage_deep_name: "Deep Tissue Massage",
+					srv_massage_deep_desc: "Deep pressure that releases chronic tension and muscle knots.",
+					srv_conotherapy_name: "Therapeutic Massage",
+					srv_conotherapy_desc: "Specialized techniques that relieve muscle pain and improve circulation.",
+					srv_apparatus_name: "Body Wraps",
+					srv_apparatus_desc: "Body treatments with natural products to detoxify and nourish your skin.",
+					srv_facial_rejuv_name: "Reflexology Pedicure",
+					srv_facial_rejuv_desc: "70 min pedicure with reflexology techniques for total balance.",
+					srv_add_btn: "Add to List",
+					cart_title: "Your Selection",
+					cart_empty: "Your list is empty yet.",
+					cart_book_btn: "Book via WhatsApp",
+					footer_brand: "Oasis Massage & Spa",
+					footer_desc: "Deep relaxation, natural beauty.",
+					footer_copy: '&copy; Developed by <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
+					wa_intro: "Hello, I would like to book the following services at Oasis Massage & Spa:",
+					cart_remove_tip: "Remove from list"
+				}
+			};
+
+			let currentLang = localStorage.getItem('oasis_lang') || 'es';
+			let cart = [];
+
+			function applyLanguage(lang) {
+				currentLang = lang;
+				localStorage.setItem('oasis_lang', lang);
+				
+				// Actualizar todos los elementos con data-i18n
+				document.querySelectorAll('[data-i18n]').forEach(el => {
+					const key = el.getAttribute('data-i18n');
+					if (translations[lang][key]) {
+						if (el.querySelector('svg')) {
+							const svg = el.querySelector('svg').outerHTML;
+							el.innerHTML = svg + ' ' + translations[lang][key];
+						} else {
+							el.innerHTML = translations[lang][key];
+						}
+					}
+				});
+
+				const currentLangLabel = document.getElementById('current-lang');
+				if (currentLangLabel) currentLangLabel.textContent = lang.toUpperCase();
+				
+				const selectedFlag = document.getElementById('selected-flag');
+				if (selectedFlag) {
+					selectedFlag.src = lang === 'es' 
+						? "https://flagcdn.com/w40/mx.png" 
+						: "https://flagcdn.com/w40/us.png";
+				}
+
+				updateCartUI();
+			}
+
+			function initLangSelector() {
+				const langBtn = document.querySelector('.lang-btn');
+				const langMenu = document.querySelector('.lang-menu');
+				const langLinks = document.querySelectorAll('.lang-menu a');
+
+				if (langBtn && langMenu) {
+					langBtn.addEventListener('click', (e) => {
+						e.stopPropagation();
+						langMenu.classList.toggle('show');
+					});
+
+					document.addEventListener('click', () => langMenu.classList.remove('show'));
+
+					langLinks.forEach(link => {
+						link.addEventListener('click', (e) => {
+							e.preventDefault();
+							const lang = e.currentTarget.getAttribute('data-lang');
+							applyLanguage(lang);
+						});
+					});
+				}
+				
+				applyLanguage(currentLang);
+			}
+
+			function initCart() {
+				const savedCart = localStorage.getItem('oasis_cart');
+				if (savedCart) {
+					try {
+						const parsed = JSON.parse(savedCart);
+						if (Array.isArray(parsed)) {
+							// Filtrar solo items que tengan una clave válida en translations
+							// o simplemente limpiar si detectamos formato viejo para evitar inconsistencias
+							const hasOldFormat = parsed.some(item => typeof item === 'string' || !translations['es'][item.name]);
+							
+							if (hasOldFormat) {
+								console.log("Detectado formato antiguo o inválido en carrito, limpiando...");
+								localStorage.removeItem('oasis_cart');
+								cart = [];
+							} else {
+								cart = parsed;
+							}
+						}
+					} catch (e) {
+						cart = [];
+					}
+				}
+				updateCartUI();
+			}
+
+			function saveCart() {
+				localStorage.setItem('oasis_cart', JSON.stringify(cart));
+			}
+
+			function addToCart(serviceKey, serviceImg) {
+				const existingItem = cart.find(item => item.name === serviceKey);
+				
+				if (existingItem) {
+					existingItem.quantity = (existingItem.quantity || 0) + 1;
+				} else {
+					cart.push({
+						name: serviceKey,
+						image: serviceImg,
+						quantity: 1
+					});
+				}
+
+				saveCart();
+				updateCartUI();
+				
+				const trigger = document.getElementById('cart-trigger');
+				if (trigger) {
+					trigger.classList.add('pulse');
+					setTimeout(() => trigger.classList.remove('pulse'), 400);
+				}
+			}
+
+			function changeQuantity(index, delta) {
+				cart[index].quantity += delta;
+				
+				if (cart[index].quantity <= 0) {
+					removeItem(index);
+				} else {
+					saveCart();
+					updateCartUI();
+				}
+			}
+
+			function removeItem(index) {
+				cart.splice(index, 1);
+				saveCart();
+				updateCartUI();
+			}
+
+			function updateCartUI() {
+				const countEl = document.getElementById('cart-count');
+				const itemsContainer = document.getElementById('cart-items-container');
+				
+				if (!countEl || !itemsContainer) return;
+
+				const totalItems = cart.reduce((acc, item) => acc + (parseInt(item.quantity) || 0), 0);
+				countEl.innerText = totalItems;
+				
+				if (cart.length === 0) {
+					itemsContainer.innerHTML = `<div style="text-align:center; color: #999; margin-top: 5rem;"><p>${translations[currentLang].cart_empty}</p></div>`;
+					return;
+				}
+
+				itemsContainer.innerHTML = cart.map((item, index) => {
+					const displayName = translations[currentLang][item.name] || item.name;
+					const img = item.image || '/images/spa_facilities.png';
+					const qty = item.quantity || 1;
+
+					return `
+					<div class="cart-item">
+						<img src="${img}" class="cart-item-img" alt="${displayName}">
+						<div class="cart-item-details">
+							<span class="cart-item-name">${displayName}</span>
+							<div class="quantity-controls">
+								<button class="qty-btn" onclick="changeQuantity(${index}, -1)" aria-label="Restar">-</button>
+								<span class="qty-value">${qty}</span>
+								<button class="qty-btn" onclick="changeQuantity(${index}, 1)" aria-label="Sumar">+</button>
+							</div>
+						</div>
+							<button class="remove-item" onclick="removeItem(${index})" title="${translations[currentLang].cart_remove_tip}">
+								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+									<path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+								</svg>
+							</button>
+					</div>
+					`;
+				}).join('');
+			}
+
+			function toggleCart(forceOpen = false) {
+				const panel = document.getElementById('cart-panel');
+				const overlay = document.getElementById('cart-overlay');
+				
+				if (!panel || !overlay) return;
+				
+				if (forceOpen) {
+					panel.classList.add('active');
+					overlay.classList.add('active');
+				} else {
+					panel.classList.toggle('active');
+					overlay.classList.toggle('active');
+				}
+			}
+
+			function reserveOnWhatsApp() {
+				if (cart.length === 0) return;
+
+				const intro = translations[currentLang].wa_intro;
+				const servicesList = cart.map(item => {
+					const name = translations[currentLang][item.name] || item.name;
+					return `${item.quantity}x ${name}`;
+				}).join("%0A- ");
+				
+				const message = `${intro}%0A%0A- ${servicesList}%0A%0AMi nombre es: `;
+				const waNumber = "523223626879";
+				window.open(`https://wa.me/${waNumber}?text=${message}`, '_blank');
+			}
+
+			window.addEventListener('DOMContentLoaded', () => {
+				initLangSelector();
+				initCart();
+			});
+		</script>
+
+	</body>
+</html>
