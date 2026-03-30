@@ -22,7 +22,6 @@
 			sizes="180x180"
 			href="/apple-touch-icon.png"
 		/>
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Oasis Massage & Spa | Tu Refugio de Bienestar</title>
 		<link
@@ -136,7 +135,7 @@
 				</p>
 				<div class="grid services-grid">
 					<div class="card service-card">
-						<img src="/images/masaje%20relajante.webp" alt="Masajes Relajantes" />
+						<img src="/images/masajes-relajantes.jpg" alt="Masajes Relajantes" />
 						<div class="card-content">
 							<h3 data-i18n="srv_relax_title">Masajes Relajantes</h3>
 							<p data-i18n="srv_relax_desc" style="margin-bottom: 1.5rem;">Terapia de cuerpo completo con aceites esenciales puros y técnicas suecas para liberar tensión y revitalizar tu cuerpo.</p>
@@ -144,7 +143,7 @@
 						</div>
 					</div>
 					<div class="card service-card">
-						<img src="/images/masaje%20profundo.webp" alt="Masajes Terapéuticos" />
+						<img src="/images/masajes-terapeuticos.jpg" alt="Masajes Terapéuticos" />
 						<div class="card-content">
 							<h3 data-i18n="srv_therapeutic_title">Masajes Terapéuticos</h3>
 							<p data-i18n="srv_therapeutic_desc" style="margin-bottom: 1.5rem;">Técnicas especializadas que alivian dolores musculares, mejoran la circulación y restauran tu bienestar físico.</p>
@@ -152,7 +151,7 @@
 						</div>
 					</div>
 					<div class="card service-card">
-						<img src="/images/masaje-facial.webp" alt="Deep Tissue" />
+						<img src="/images/masajes%20de%20tejido%20profundo.jpg" alt="Deep Tissue" />
 						<div class="card-content">
 							<h3 data-i18n="srv_deep_title">Masaje de Tejido Profundo</h3>
 							<p data-i18n="srv_deep_desc" style="margin-bottom: 1.5rem;">Presión profunda que libera tensiones crónicas y nudos musculares para un alivio duradero.</p>
@@ -174,7 +173,7 @@
 		<!-- Instalaciones -->
 		<section class="section bg-dark" id="instalaciones">
 			<div class="container container-flex">
-				<div class="flex-half fade-in">
+				<div class="flex-half fade-in" style="flex: 1 1 55%;">
 					<h2 class="section-title" data-i18n="fac_title">
 						Nuestras Instalaciones
 					</h2>
@@ -193,7 +192,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="flex-half img-box">
+				<div class="flex-half img-box" style="flex: 1 1 40%; max-width: 500px;">
 					<img
 						src="/images/instalaciones.jpg"
 						alt="Instalaciones del spa"
@@ -491,8 +490,6 @@
 			<span data-i18n="floating_cta">Agenda ahora</span>
 		</a>
 
-		</a>
-
 		<!-- Footer -->
 		<footer class="footer bg-primary text-white">
 			<div class="container footer-content">
@@ -511,7 +508,7 @@
 		</footer>
 
 		<script>
-			const translations: Record<string, Record<string, string>> = {
+			const translations = {
 				es: {
 					nav_services: "Servicios",
 					nav_facilities: "Instalaciones",
@@ -523,7 +520,7 @@
 					hero_btn_explore: "Explorar Servicios",
 					hero_btn_contact: "Contáctanos",
 					srv_title: "Nuestros Servicios",
-					srv_subtitle: "Tratamientos premium diseñados para desconectar del estrés diario.",
+					srv_subtitle: "Rituales de bienestar diseñados para desconectar del estrés diario.",
 					srv_relax_title: "Masajes Relajantes",
 					srv_relax_desc: "Terapia de cuerpo completo con aceites esenciales puros y técnicas suecas para liberar tensión y revitalizar tu cuerpo.",
 					srv_therapeutic_title: "Masajes Terapéuticos",
@@ -535,11 +532,11 @@
 					book_now: "Reservar ahora",
 					view_all_services: "Ver todos los servicios",
 					fac_title: "Nuestras Instalaciones",
-					fac_desc: "Cada detalle pensado para crear un ambiente donde el tiempo se detiene y tu bienestar es la prioridad.",
-					fac_feat1: "✓ Snacks y copa de vino de cortesía",
-					fac_feat2: "✓ Ambiente de relajación total",
-					fac_feat3: "✓ Manos profesionales certificadas",
-					gal_title: "Galería",
+					fac_desc: "Hemos cuidado cada detalle para crear un ambiente donde el tiempo se detiene.",
+					fac_feat1: "✓ Ambiente zen",
+					fac_feat2: "✓ Té de cortesía",
+					fac_feat3: "✓ Manos Expertas",
+					gal_title: "Galería de Paz",
 					gal_subtitle: "Un vistazo a los espacios que hemos creado para tu bienestar.",
 					testim_title: "Lo que dicen nuestros clientes",
 					testim_1: '"El mejor masaje que me han dado en mi vida. El ambiente es increíble y salí completamente renovada. ¡100% recomendado!"',
@@ -561,16 +558,16 @@
 					contact_title: "Contacto y Redes Sociales",
 					contact_phone: "Teléfono: 322 362 6879",
 					map_title: "Encuéntranos",
-					map_desc: "Coral 6, Cruz de Huanacaxtle, Nayarit, 63734",
+					map_desc: "Visítanos en nuestra ubicación privilegiada en Bucerías",
 					faq_title: "Preguntas Frecuentes",
 					faq_q1: "¿Con cuánto tiempo de anticipación debo reservar?",
-					faq_a1: "Recomendamos realizar su reserva con al menos 24 horas de anticipación para asegurar disponibilidad.",
-					faq_q2: "¿Qué incluyen los paquetes Day Spa?",
-					faq_a2: "Todos los paquetes incluyen un descanso de 30 min con snacks y una copa de vino tinto, además de amenidades.",
-					faq_q3: "¿Cuál es su horario de atención?",
-					faq_a3: "Atendemos de lunes a sábado de 10 a.m. a 6 p.m. Los domingos estamos cerrados.",
+					faq_a1: "Recomendamos realizar su reserva con al menos 48 horas de anticipación para asegurar disponibilidad.",
+					faq_q2: "¿Qué debo llevar a mi cita?",
+					faq_a2: "Le proporcionaremos batas, pantuflas y toallas. Solo necesita traer ropa cómoda y ganas de relajarse.",
+					faq_q3: "¿Tienen estacionamiento?",
+					faq_a3: "Sí, contamos con servicio de valet parking y espacios designados para nuestros clientes frente al spa.",
 					footer_desc: "Relajación profunda, belleza natural.",
-					footer_copy: 'Desarrollado por <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>',
+					footer_copy: 'Desarrollado por <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
 					floating_cta: "Agenda ahora",
 					view_on_maps: "Ver en Google Maps",
 					wa_form_intro: "Hola, soy [nombre]. Me gustaría solicitar una reserva en Oasis Massage & Spa para el siguiente servicio:",
@@ -588,7 +585,7 @@
 					hero_btn_explore: "Explore Services",
 					hero_btn_contact: "Contact Us",
 					srv_title: "Our Services",
-					srv_subtitle: "Premium treatments designed to disconnect from daily stress.",
+					srv_subtitle: "Wellness rituals designed to disconnect from daily stress.",
 					srv_relax_title: "Relaxing Massages",
 					srv_relax_desc: "Full body therapy with pure essential oils and Swedish techniques to release tension and revitalize your body.",
 					srv_therapeutic_title: "Therapeutic Massages",
@@ -600,11 +597,11 @@
 					book_now: "Book now",
 					view_all_services: "View all services",
 					fac_title: "Our Facilities",
-					fac_desc: "Every detail designed to create an environment where time stands still and your wellness is the priority.",
-					fac_feat1: "✓ Complimentary snacks & wine",
-					fac_feat2: "✓ Total relaxation atmosphere",
-					fac_feat3: "✓ Certified professional hands",
-					gal_title: "Gallery",
+					fac_desc: "We have taken care of every detail to create an environment where time stands still.",
+					fac_feat1: "✓ Zen atmosphere",
+					fac_feat2: "✓ Complimentary tea",
+					fac_feat3: "✓ Expert hands",
+					gal_title: "Gallery of Peace",
 					gal_subtitle: "A glimpse of the spaces we have created for your well-being.",
 					testim_title: "What our clients say",
 					testim_1: '"The best massage I\'ve ever had. The atmosphere is incredible and I left completely renewed. 100% recommended!"',
@@ -626,16 +623,16 @@
 					contact_title: "Contact & Social Media",
 					contact_phone: "Phone: 322 362 6879",
 					map_title: "Find Us",
-					map_desc: "Coral 6, Cruz de Huanacaxtle, Nayarit, 63734",
+					map_desc: "Visit us at our privileged location in Bucerías",
 					faq_title: "Frequently Asked Questions",
 					faq_q1: "How far in advance should I book?",
-					faq_a1: "We recommend booking at least 24 hours in advance to ensure availability.",
-					faq_q2: "What do the Day Spa packages include?",
-					faq_a2: "All packages include a 30 min break with snacks and a glass of red wine, plus amenities.",
-					faq_q3: "What are your business hours?",
-					faq_a3: "We are open Monday to Saturday from 10 a.m. to 6 p.m. Sundays we are closed.",
+					faq_a1: "We recommend booking at least 48 hours in advance to ensure availability.",
+					faq_q2: "What should I bring to my appointment?",
+					faq_a2: "We will provide robes, slippers, and towels. Just bring comfortable clothing and a willingness to relax.",
+					faq_q3: "Do you have parking?",
+					faq_a3: "Yes, we have valet parking and designated spaces for our clients in front of the spa.",
 					footer_desc: "Deep relaxation, natural beauty.",
-					footer_copy: 'Developed by <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>',
+					footer_copy: 'Developed by <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
 					floating_cta: "Book Now",
 					view_on_maps: "View on Google Maps",
 					wa_form_intro: "Hello, I am [nombre]. I would like to book the following service at Oasis Massage & Spa:",
@@ -647,23 +644,36 @@
 			document.addEventListener("DOMContentLoaded", () => {
 				const langBtn = document.querySelector(".lang-btn");
 				const langMenu = document.querySelector(".lang-menu");
-				const arrow = document.querySelector(".arrow") as HTMLElement;
+				const arrow = document.querySelector(".arrow");
 				const langLinks = document.querySelectorAll(".lang-menu a");
 				const currentLangLabel = document.getElementById("current-lang");
 
-				const applyLanguage = (lang: string) => {
+				const applyLanguage = (lang) => {
 					localStorage.setItem("oasis_lang", lang);
 					if (!translations[lang]) return;
 					document.querySelectorAll("[data-i18n]").forEach((el) => {
 						const key = el.getAttribute("data-i18n");
-						if (key && translations[lang][key]) { el.innerHTML = translations[lang][key]; }
+						if (key && translations[lang][key]) {
+							if (el.querySelector("svg")) {
+								const svg = el.querySelector("svg").outerHTML;
+								el.innerHTML = svg + " " + translations[lang][key];
+							} else {
+								el.innerHTML = translations[lang][key];
+							}
+						}
+					});
+					document.querySelectorAll("option[data-i18n]").forEach((el) => {
+						const key = el.getAttribute("data-i18n");
+						if (key && translations[lang][key]) {
+							el.textContent = translations[lang][key];
+						}
 					});
 					document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
 						const key = el.getAttribute("data-i18n-placeholder");
 						if (key && translations[lang][key]) { el.setAttribute("placeholder", translations[lang][key]); }
 					});
 					if (currentLangLabel) { currentLangLabel.textContent = lang.toUpperCase(); }
-					const selectedFlag = document.getElementById("selected-flag") as HTMLImageElement;
+					const selectedFlag = document.getElementById("selected-flag");
 					if (selectedFlag) {
 						selectedFlag.src = lang === "es" ? "https://flagcdn.com/w40/mx.png" : "https://flagcdn.com/w40/us.png";
 						selectedFlag.alt = lang.toUpperCase() + " Flag";
@@ -687,7 +697,7 @@
 					langLinks.forEach((link) => {
 						link.addEventListener("click", (e) => {
 							e.preventDefault();
-							const selectedLang = (e.target as HTMLElement).getAttribute("data-lang");
+							const selectedLang = e.currentTarget?.getAttribute?.("data-lang");
 							if (selectedLang) { applyLanguage(selectedLang); }
 							langMenu.classList.remove("show");
 							langBtn.setAttribute("aria-expanded", "false");
@@ -698,7 +708,7 @@
 
 				// Testimonial Carousel
 				let currentIndex = 0;
-				const track = document.querySelector(".testim-track") as HTMLElement;
+				const track = document.querySelector(".testim-track");
 				const testimCards = document.querySelectorAll(".testim-track .testimonial-card");
 				const prevBtn = document.querySelector(".testim-btn.prev");
 				const nextBtn = document.querySelector(".testim-btn.next");
@@ -719,18 +729,18 @@
 
 				// Form Submission
 				const bookingSubmitBtn = document.getElementById("booking-submit");
-				const bookingName = document.getElementById("booking-name") as HTMLInputElement;
-				const bookingEmail = document.getElementById("booking-email") as HTMLInputElement;
-				const bookingPhone = document.getElementById("booking-phone") as HTMLInputElement;
-				const bookingService = document.getElementById("booking-service") as HTMLSelectElement;
+				const bookingName = document.getElementById("booking-name");
+				const bookingEmail = document.getElementById("booking-email");
+				const bookingPhone = document.getElementById("booking-phone");
+				const bookingService = document.getElementById("booking-service");
 				if (bookingSubmitBtn) {
 					bookingSubmitBtn.addEventListener("click", () => {
-						const nameValue = bookingName.value.trim();
-						const serviceValue = bookingService.options[bookingService.selectedIndex].text;
-						const emailValue = bookingEmail.value.trim();
-						const phoneValue = bookingPhone.value.trim();
+						const nameValue = (bookingName?.value || "").trim();
+						const serviceValue = bookingService?.options?.[bookingService.selectedIndex]?.text || "";
+						const emailValue = (bookingEmail?.value || "").trim();
+						const phoneValue = (bookingPhone?.value || "").trim();
 						const lang = localStorage.getItem("oasis_lang") || "es";
-						if (!nameValue || bookingService.value === "") { alert(translations[lang].form_error); return; }
+						if (!nameValue || bookingService?.value === "") { alert(translations[lang].form_error); return; }
 						const intro = translations[lang].wa_form_intro.replace("[nombre]", nameValue);
 						let contactInfo = "";
 						if (emailValue || phoneValue) {

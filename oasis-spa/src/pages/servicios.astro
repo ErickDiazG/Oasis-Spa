@@ -7,7 +7,6 @@
 		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
 		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<title>Servicios | Oasis Massage & Spa</title>
 		<link
@@ -203,7 +202,7 @@
 			/* Header Sección */
 			.services-hero {
 				padding: 180px 0 100px;
-				background: linear-gradient(rgba(249, 247, 242, 0.9), rgba(249, 247, 242, 0.9)), url("/images/spa-sala.webp");
+				background: linear-gradient(rgba(249, 247, 242, 0.9), rgba(249, 247, 242, 0.9)), url("/images/premium_spa_hero.png");
 				background-size: cover;
 				background-position: center;
 				text-align: center;
@@ -698,8 +697,8 @@
 		<!-- Tabs y Grid de Servicios -->
 		<main class="container">
 			<div class="services-tabs">
-				<button class="tab-btn active" onclick="switchTab('tab-general')" data-i18n="tab_general">Servicios Generales</button>
-				<button class="tab-btn" onclick="switchTab('tab-packages')" data-i18n="tab_packages">Paquetes Day Spa</button>
+				<button class="tab-btn active" onclick="switchTab(event, 'tab-general')" data-i18n="tab_general">Servicios Generales</button>
+				<button class="tab-btn" onclick="switchTab(event, 'tab-packages')" data-i18n="tab_packages">Paquetes Day Spa</button>
 			</div>
 
 			<div id="tab-general" class="tab-content active">
@@ -984,14 +983,14 @@
 					<!-- 4. The One -->
 					<div class="service-card">
 						<div class="service-img-box">
-							<img src="/images/the one.jpeg" alt="The One" />
+							<img src="/images/the%20one.jpeg" alt="The One" />
 						</div>
 						<div class="service-info">
 							<div>
 								<h3 data-i18n="pkg_theone_name">THE ONE | $2,000</h3>
 								<p data-i18n="pkg_theone_desc">Anti-Stress Massage 90 min. Body Exfoliation 40 min. Passion Fruit Facial 60 min.</p>
 							</div>
-							<button class="add-to-cart-btn" onclick="addToCart('pkg_theone_name', '/images/the one.jpeg', 2000)" data-i18n="srv_add_btn">
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_theone_name', '/images/the%20one.jpeg', 2000)" data-i18n="srv_add_btn">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
 								Añadir al Ritual
 							</button>
@@ -1001,14 +1000,14 @@
 					<!-- 5. Simple Beauty -->
 					<div class="service-card">
 						<div class="service-img-box">
-							<img src="/images/simple beauty.jpg" alt="Simple Beauty" />
+							<img src="/images/simple%20beauty.jpg" alt="Simple Beauty" />
 						</div>
 						<div class="service-info">
 							<div>
 								<h3 data-i18n="pkg_simplebeauty_name">SIMPLE BEAUTY | $1,100</h3>
 								<p data-i18n="pkg_simplebeauty_desc">Swedish Massage 45 min. & Passion Fruit Facial 45 min.</p>
 							</div>
-							<button class="add-to-cart-btn" onclick="addToCart('pkg_simplebeauty_name', '/images/simple beauty.jpg', 1100)" data-i18n="srv_add_btn">
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_simplebeauty_name', '/images/simple%20beauty.jpg', 1100)" data-i18n="srv_add_btn">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
 								Añadir al Ritual
 							</button>
@@ -1052,14 +1051,14 @@
 					<!-- 8. Muscle Melting -->
 					<div class="service-card">
 						<div class="service-img-box">
-							<img src="/images/muscle melting.jpg" alt="Muscle Melting" />
+							<img src="/images/muscle%20melting.jpg" alt="Muscle Melting" />
 						</div>
 						<div class="service-info">
 							<div>
 								<h3 data-i18n="pkg_muscle_name">MUSCLE MELTING | $1,300</h3>
 								<p data-i18n="pkg_muscle_desc">Muscle Melting Massage 70 min. Body Exfoliation 40 min.</p>
 							</div>
-							<button class="add-to-cart-btn" onclick="addToCart('pkg_muscle_name', '/images/muscle melting.jpg', 1300)" data-i18n="srv_add_btn">
+							<button class="add-to-cart-btn" onclick="addToCart('pkg_muscle_name', '/images/muscle%20melting.jpg', 1300)" data-i18n="srv_add_btn">
 								<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
 								Añadir al Ritual
 							</button>
@@ -1176,7 +1175,7 @@
 					nav_facilities: "Instalaciones",
 					nav_contact: "Contacto",
 					btn_book: "Reservar",
-					srv_hero_title: "Nuestro Menú de Bienestar",
+					srv_hero_title: "Momentos de Paz",
 					srv_hero_desc: "Explora nuestro menú completo y diseña tu propia experiencia de relajación. Añade tus servicios favoritos y reserva por WhatsApp.",
 					cat_facials: "Faciales",
 					fac_sea_moss: "Facial Hidratante Sea Moss 60 min",
@@ -1253,13 +1252,13 @@
 					pkg_smooth_desc: "Masaje Sueco 45 min. Facial Rejuvenecedor 45 min. Pedicura Terapéutica 50 min.",
 					pkg_therapeutic_name: "THERAPEUTIC | $1,350",
 					pkg_therapeutic_desc: "Masajes Terapéuticos 70 min. Pedicura con Piedras Calientes.",
-					srv_add_btn: "Agregar a la Lista",
-					cart_title: "Tu Selección",
+					srv_add_btn: "Añadir al Ritual",
+					cart_title: "Tu Selección Zen",
 					cart_empty: "Tu lista está vacía aún.",
 					cart_book_btn: "Reservar por WhatsApp",
 					footer_brand: "Oasis Massage & Spa",
 					footer_desc: "Relajación profunda, belleza natural.",
-					footer_copy: '&copy; Desarrollado por <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
+					footer_copy: '© 2026 Desarrollado por <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
 					wa_intro: "Hola, me gustaría reservar los siguientes servicios en Oasis Massage & Spa:",
 					cart_remove_tip: "Eliminar de la lista"
 				},
@@ -1268,42 +1267,42 @@
 					nav_facilities: "Facilities",
 					nav_contact: "Contact",
 					btn_book: "Book Now",
-					srv_hero_title: "Our Wellness Menu",
+					srv_hero_title: "Moments of Peace",
 					srv_hero_desc: "Explore our full menu and design your own relaxation experience. Add your favorite services and book via WhatsApp.",
 					cat_facials: "Facials",
-					fac_sea_moss: "Hydrating Sea Moss facial 60 min",
-					fac_clarifying: "Nurturing & clarifying facial 60 min",
-					fac_detox: "Detox facial 60 min",
-					fac_passion: "Restore Passion Fruit facial",
+					fac_sea_moss: "Hydrating Sea Moss Facial 60 min",
+					fac_clarifying: "Nurturing & Clarifying Facial 60 min",
+					fac_detox: "Detox Facial 60 min",
+					fac_passion: "Restore Passion Fruit Facial",
 					cat_premium_facials: "Premium Facials",
-					pfac_deep: "Deep cleansing facial 80 min",
-					pfac_vitc: "Vitamin C facial 80 min",
-					pfac_mens: "Mens well being nurturing facial 80 min",
-					pfac_antiaging: "Anti-aging facial 80 min",
-					pfac_oasis: "Restore Oasis facial 80 min",
+					pfac_deep: "Deep Cleansing Facial 80 min",
+					pfac_vitc: "Vitamin C Facial 80 min",
+					pfac_mens: "Men's Well-being Facial 80 min",
+					pfac_antiaging: "Anti-aging Facial 80 min",
+					pfac_oasis: "Restore Oasis Facial 80 min",
 					cat_body_wraps: "Body Wraps",
-					bw_exfoliation: "Body exfoliation 40 min",
-					bw_tequila: "Detox tequila mint 80 min",
-					bw_chocolate: "Chocolate nurturing",
-					bw_yogurt: "Yogurt and honey hydrating 80 min",
-					bw_lavender: "Lavender relaxing 80 min",
-					cat_mani_pedi: "Manicure & Pedicures",
-					mp_thera: "Therapeutic pedicure 60 min",
-					mp_reflex: "Reflexology pedicure 70 min",
-					mp_hot_stone: "Hot stone therapeutic pedicure 80 min",
-					mp_spa_mani: "Spa manicure",
-					mp_premium_mani: "Premium manicure",
+					bw_exfoliation: "Body Exfoliation 40 min",
+					bw_tequila: "Detox Tequila & Mint 80 min",
+					bw_chocolate: "Chocolate Nutrition",
+					bw_yogurt: "Yogurt & Honey Hydration 80 min",
+					bw_lavender: "Lavender Relaxing 80 min",
+					cat_mani_pedi: "Manicure & Pedicure",
+					mp_thera: "Therapeutic Pedicure 60 min",
+					mp_reflex: "Reflexology Pedicure 70 min",
+					mp_hot_stone: "Hot Stone Therapeutic Pedicure 80 min",
+					mp_spa_mani: "Spa Manicure",
+					mp_premium_mani: "Premium Manicure",
 					cat_addons: "Add-ons",
-					ao_polish: "Polish change",
-					ao_gel_app: "Gel application",
-					ao_gel_rem: "Gel removal",
-					ao_rubber_app: "Rubber application",
-					ao_rubber_ref: "Rubber Refiller",
+					ao_polish: "Polish Change",
+					ao_gel_app: "Gel Application",
+					ao_gel_rem: "Gel Removal",
+					ao_rubber_app: "Rubber Application",
+					ao_rubber_ref: "Rubber Refill",
 					ao_rubber_rem: "Rubber Removal",
-					ao_rub_gel: "Rubber and Gel application",
+					ao_rub_gel: "Rubber & Gel Application",
 					cat_massages: "Massages",
 					cat_relax_massages: "Relaxing Massages",
-					msg_hot: "Hotstones",
+					msg_hot: "Hot Stones",
 					msg_anti: "Anti Stress",
 					msg_swe: "Swedish",
 					msg_lomi: "Lomi Lomi",
@@ -1313,7 +1312,7 @@
 					msg_thera: "Therapeutic",
 					cat_deep_massages: "Deep Tissue Massages",
 					msg_deep: "Deep Tissue",
-					msg_muscle: "Muscle Melting",
+					msg_muscle: "Deep Muscle Release",
 					msg_cupping: "Detox Cupping",
 					cat_experiences: "Massage Experiences",
 					exp_tequila: "Tequila Experience (2 hrs)",
@@ -1324,7 +1323,7 @@
 					tab_packages: "Day Spa Packages",
 					pkg_global_note: "All Day Spa Packages include a 30 min. break with snacks and a glass of red wine. Amenities included.",
 					pkg_antistress_name: "ANTI-STRESS | $1,400",
-					pkg_antistress_desc: "Anti-stress Massage 70min & Hydrating Sea Moss Facial 60 min.",
+					pkg_antistress_desc: "Anti-stress Massage 70 min & Hydrating Sea Moss Facial 60 min.",
 					pkg_sensations_name: "SENSATIONS | $1,700",
 					pkg_sensations_desc: "Body Exfoliation 40 min. Lomi Lomi Massage 50 min. Hot Stones Pedicure 80 min.",
 					pkg_harmony_name: "HARMONY | $1,550",
@@ -1334,24 +1333,24 @@
 					pkg_simplebeauty_name: "SIMPLE BEAUTY | $1,100",
 					pkg_simplebeauty_desc: "Swedish Massage 45 min. & Passion Fruit Facial 45 min.",
 					pkg_digestive_name: "DIGESTIVE | $1,500",
-					pkg_digestive_desc: "Aromatherapeutic 90 min & Reflexology Pedicure 70 min.",
+					pkg_digestive_desc: "Aromatherapy Massage 90 min & Reflexology Pedicure 70 min.",
 					pkg_detox_name: "DETOX | $2,000",
 					pkg_detox_desc: "Cupping Massage 70 min. Detox Facial 60 min. Body Exfoliation 40 min.",
 					pkg_muscle_name: "MUSCLE MELTING | $1,300",
-					pkg_muscle_desc: "Muscle Melting Massage 70 min. Body Exfoliation 40 min.",
+					pkg_muscle_desc: "Deep Muscle Release Massage 70 min. Body Exfoliation 40 min.",
 					pkg_relaxing_name: "RELAXING | $1,850",
 					pkg_relaxing_desc: "Hot Stones Massage 70 min. Detox Facial 60 min. Body Exfoliation 40 min.",
 					pkg_smooth_name: "SMOOTH | $1,200",
-					pkg_smooth_desc: "Swedish Massage 45 min. Rejuvenate Facial 45 min. Therapeutic Pedicure 50 min.",
+					pkg_smooth_desc: "Swedish Massage 45 min. Rejuvenating Facial 45 min. Therapeutic Pedicure 50 min.",
 					pkg_therapeutic_name: "THERAPEUTIC | $1,350",
-					pkg_therapeutic_desc: "Therapeutic Massages 70 min. Hot Stones pedicure.",
-					srv_add_btn: "Add to List",
-					cart_title: "Your Selection",
-					cart_empty: "Your list is empty yet.",
+					pkg_therapeutic_desc: "Therapeutic Massages 70 min. Hot Stones Pedicure.",
+					srv_add_btn: "Add to Ritual",
+					cart_title: "Your Zen Selection",
+					cart_empty: "Your list is still empty.",
 					cart_book_btn: "Book via WhatsApp",
 					footer_brand: "Oasis Massage & Spa",
 					footer_desc: "Deep relaxation, natural beauty.",
-					footer_copy: '&copy; Developed by <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
+					footer_copy: '© 2026 Developed by <a href="https://devdiazlabs.com/" target="_blank" class="dev-link">DevDiaz Labs</a>.',
 					wa_intro: "Hello, I would like to book the following services at Oasis Massage & Spa:",
 					cart_remove_tip: "Remove from list"
 				}
@@ -1579,12 +1578,12 @@
 			});
 
 			// Lógica para Pestañas (Tabs)
-			window.switchTab = function(tabId) {
+			window.switchTab = function(ev, tabId) {
 				document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
 				document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
 				
-				if (event && event.currentTarget) {
-					event.currentTarget.classList.add('active');
+				if (ev && ev.currentTarget) {
+					ev.currentTarget.classList.add('active');
 				}
 				const targetTab = document.getElementById(tabId);
 				if (targetTab) {
